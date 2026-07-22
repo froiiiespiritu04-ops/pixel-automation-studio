@@ -111,6 +111,94 @@ const projects: Project[] = [
       complexitySub: "Modules: 13",
     },
   },
+  {
+    title: "AI Agent for Facebook Messenger",
+    summary:
+      "An n8n chatbot that answers customer inquiries 24/7 on Facebook Messenger using a custom FAQ knowledge base — no human agent needed for common questions.",
+    screenshot: fbShot.url,
+    tech: ["n8n", "Facebook Messenger", "Google Gemini", "FAQ Knowledge Base"],
+    problem:
+      "Small businesses lose leads on Messenger because common questions go unanswered overnight, and hiring a 24/7 agent isn't realistic.",
+    solution:
+      "An n8n workflow verifies the Messenger webhook, filters real user messages, loads a custom FAQ knowledge base, and lets a Gemini-powered support agent with conversation memory reply automatically.",
+    steps: [
+      "Messenger Webhook receives incoming events.",
+      "GET requests hit the verification branch and return the challenge to Facebook.",
+      "POST requests are filtered so only real user messages continue.",
+      "Load FAQ Knowledge Base pulls the business's answers into context.",
+      "Customer Support AI (Google Gemini) generates a reply with conversation memory.",
+      "Send Reply to Messenger posts the response back to the customer.",
+    ],
+    skills: [
+      "Webhook Verification",
+      "AI Chatbots",
+      "Knowledge Base Retrieval",
+      "Conversation Memory",
+      "Conditional Logic",
+    ],
+    stats: {
+      modules: "8",
+      apps: "3",
+      type: "AI Chatbot",
+      difficulty: "Intermediate",
+      status: "Live",
+      builtWith: "n8n",
+    },
+    impact: {
+      timeSaved: "10+ hrs/week",
+      operationalImpact: "Faster Lead Response",
+      apps: { count: "3 Apps", names: "n8n • Facebook Messenger • Google Gemini" },
+      complexity: "Intermediate",
+      complexitySub: "Modules: 8",
+    },
+  },
+  {
+    title: "AI Job Application Automation",
+    summary:
+      "An n8n workflow that searches jobs, tailors a resume with AI, saves it to Google Drive, drafts an email with the resume attached, and notifies Slack when each application is ready.",
+    screenshot: jobShot.url,
+    tech: ["n8n", "Slack", "OpenRouter", "Google Drive", "Gmail"],
+    problem:
+      "Applying to jobs manually — searching, tailoring a resume, saving files, drafting emails — takes hours per role and kills consistency.",
+    solution:
+      "A Slack-triggered n8n workflow validates the query, searches jobs, generates a tailored resume via OpenRouter with structured output, manages the Drive file, drafts a Gmail email, and reports back to Slack.",
+    steps: [
+      "Slack Trigger receives the job-search query.",
+      "Check if Query is Valid — invalid queries return an Invalid Query message.",
+      "Send \"Searching for Jobs\" acknowledgement back to Slack.",
+      "Get All Jobs and Check Results.",
+      "Split Out & Loop Over Items iterates each job posting.",
+      "Get Resume Content, then Create Resume Content with AI (OpenRouter + Structured Output Parser).",
+      "Search Files/Folders to check if a resume already exists → Wait → Copy Resume → Wait → Update Document.",
+      "If branch decides whether to Create an Email Draft in Gmail with the resume attached.",
+      "Send application details back to the Slack jobs channel.",
+    ],
+    skills: [
+      "AI Content Generation",
+      "Structured Output Parsing",
+      "File Search & Management",
+      "Conditional Logic",
+      "Multi-step Automation",
+    ],
+    stats: {
+      modules: "15+",
+      apps: "5",
+      type: "AI Agent + Multi-step Automation",
+      difficulty: "Advanced",
+      status: "Live",
+      builtWith: "n8n",
+    },
+    impact: {
+      timeSaved: "10+ hrs/week",
+      operationalImpact: "Faster Job Applications",
+      apps: {
+        count: "5 Apps",
+        names: "n8n • Slack • OpenRouter • Google Drive • Gmail",
+      },
+      complexity: "Advanced",
+      complexitySub: "Modules: 15+",
+    },
+  },
 ];
 
 const services = [
