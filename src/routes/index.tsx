@@ -324,23 +324,24 @@ function About() {
         <div className="grid items-start gap-10 md:grid-cols-[280px_1fr] md:gap-16">
           <Reveal>
             <div
-              className="mx-auto w-full max-w-[280px] p-2"
+              className="mx-auto aspect-square w-full max-w-[280px] overflow-hidden rounded-full p-2"
               style={{
                 backgroundColor: "#38281d",
-                border: "3px solid #c46a3a",
-                boxShadow: "6px 6px 0 0 rgba(0,0,0,0.4)",
+                border: "4px solid #c46a3a",
+                boxShadow: "0 0 0 6px rgba(0,0,0,0.35)",
               }}
             >
               <img
                 src={headshot.url}
-                alt="Portrait of the automation specialist"
-                className="block aspect-square w-full object-cover"
+                alt="Portrait of Froilan, automation specialist"
+                className="block h-full w-full rounded-full object-cover"
               />
             </div>
           </Reveal>
 
           <Reveal>
             <div className="space-y-5 text-sm leading-loose text-beige md:text-base">
+              <h3 className="text-xl text-cream md:text-3xl">Hi, I'm Froilan</h3>
               <p>
                 I'm an Automation Specialist who builds the boring, repetitive
                 plumbing out of business operations — so teams can spend their
@@ -357,6 +358,7 @@ function About() {
               </p>
             </div>
           </Reveal>
+
         </div>
       </div>
     </section>
