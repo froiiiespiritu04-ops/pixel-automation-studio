@@ -273,15 +273,24 @@ function Hero() {
       <div className="relative">
         <img
           src={heroImg}
-          alt="Pixel-art rooftop workspace at sunset with monitors showing workflow diagrams"
-          width={1536}
-          height={1024}
+          alt="Pixel-art automation workspace at sunset: three monitors with n8n, Zapier and Make workflows, shelves, plants, coffee mug and a sleeping cat"
+          width={1920}
+          height={768}
           className="h-[38vh] w-full object-cover md:h-[52vh]"
         />
         {/* Drifting cloud */}
         <div className="pointer-events-none absolute left-0 top-8 h-4 w-24 bg-cream/20 cloud-drift" />
+        {/* Lamp glow */}
+        <div
+          className="pointer-events-none absolute right-[14%] top-[18%] h-40 w-40 rounded-full lamp-glow"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(255,190,120,0.30) 0%, rgba(255,190,120,0) 70%)",
+          }}
+        />
         <div className="pointer-events-none absolute inset-0 border-b-4 border-sunset/40" />
       </div>
+
 
       {/* Text zone — solid background, clearly separated */}
       <div className="bg-background">
@@ -527,12 +536,36 @@ function Contact() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
 
   const cards = [
-    { icon: Mail, label: "Email", value: "hello@auto.dev" },
-    { icon: Phone, label: "Phone", value: "+63 900 000 0000" },
+    {
+      icon: Mail,
+      label: "Email",
+      value: "froiiiespiritu04@gmail.com",
+      href: "mailto:froiiiespiritu04@gmail.com",
+      external: false,
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: "+63 927 514 3811",
+      href: "tel:+639275143811",
+      external: false,
+    },
     { icon: MapPin, label: "Location", value: "Philippines — Remote" },
-    { icon: Linkedin, label: "LinkedIn", value: "/in/automation-specialist" },
-    { icon: Github, label: "GitHub", value: "@automation-specialist" },
-  ];
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: "/in/froilan-espiritu-2a79603aa/",
+      href: "https://www.linkedin.com/in/froilan-espiritu-2a79603aa/",
+      external: true,
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      value: "@froiiiespiritu04-ops",
+      href: "https://github.com/froiiiespiritu04-ops",
+      external: true,
+    },
+  ] as const;
 
   return (
     <section
@@ -575,22 +608,40 @@ function Contact() {
               </p>
 
               <div className="mb-8 space-y-3">
-                {cards.map(({ icon: Icon, label, value }) => (
-                  <div
-                    key={label}
-                    className="pixel-card pixel-card-hover flex items-center gap-4 p-4"
-                  >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center border-2 border-sunset bg-input-bg text-sunset">
-                      <Icon className="h-5 w-5" />
+                {cards.map((card) => {
+                  const Icon = card.icon;
+                  const inner = (
+                    <>
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center border-2 border-sunset bg-input-bg text-sunset">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                          {card.label}
+                        </p>
+                        <p className="text-sm text-cream">{card.value}</p>
+                      </div>
+                    </>
+                  );
+                  const cls =
+                    "pixel-card pixel-card-hover flex items-center gap-4 p-4";
+                  return "href" in card && card.href ? (
+                    <a
+                      key={card.label}
+                      href={card.href}
+                      className={cls}
+                      {...(card.external
+                        ? { target: "_blank", rel: "noreferrer" }
+                        : {})}
+                    >
+                      {inner}
+                    </a>
+                  ) : (
+                    <div key={card.label} className={cls}>
+                      {inner}
                     </div>
-                    <div>
-                      <p className="text-[10px] uppercase tracking-widest text-muted-foreground">
-                        {label}
-                      </p>
-                      <p className="text-sm text-cream">{value}</p>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
               <div className="flex flex-wrap gap-4">

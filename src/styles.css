@@ -220,6 +220,17 @@
   animation: cloud-drift 60s linear infinite;
 }
 
+/* Lamp glow */
+@keyframes lamp-glow {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.06); }
+}
+@utility lamp-glow {
+  animation: lamp-glow 7s ease-in-out infinite;
+}
+
+
+
 /* Blink */
 @keyframes screen-blink {
   0%, 96%, 100% { opacity: 1; }
