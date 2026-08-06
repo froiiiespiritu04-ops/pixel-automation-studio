@@ -222,7 +222,9 @@ function Home() {
       <Projects />
       <WorkflowGallery />
       <Services />
+      <BookCall />
       <Contact />
+
       <Footer />
     </div>
   );
