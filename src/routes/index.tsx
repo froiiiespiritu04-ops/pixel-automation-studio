@@ -273,15 +273,24 @@ function Hero() {
       <div className="relative">
         <img
           src={heroImg}
-          alt="Pixel-art rooftop workspace at sunset with monitors showing workflow diagrams"
-          width={1536}
-          height={1024}
+          alt="Pixel-art automation workspace at sunset: three monitors with n8n, Zapier and Make workflows, shelves, plants, coffee mug and a sleeping cat"
+          width={1920}
+          height={768}
           className="h-[38vh] w-full object-cover md:h-[52vh]"
         />
         {/* Drifting cloud */}
         <div className="pointer-events-none absolute left-0 top-8 h-4 w-24 bg-cream/20 cloud-drift" />
+        {/* Lamp glow */}
+        <div
+          className="pointer-events-none absolute right-[14%] top-[18%] h-40 w-40 rounded-full lamp-glow"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(255,190,120,0.30) 0%, rgba(255,190,120,0) 70%)",
+          }}
+        />
         <div className="pointer-events-none absolute inset-0 border-b-4 border-sunset/40" />
       </div>
+
 
       {/* Text zone — solid background, clearly separated */}
       <div className="bg-background">
