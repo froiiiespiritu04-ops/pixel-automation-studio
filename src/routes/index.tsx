@@ -599,22 +599,40 @@ function Contact() {
               </p>
 
               <div className="mb-8 space-y-3">
-                {cards.map(({ icon: Icon, label, value }) => (
-                  <div
-                    key={label}
-                    className="pixel-card pixel-card-hover flex items-center gap-4 p-4"
-                  >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center border-2 border-sunset bg-input-bg text-sunset">
-                      <Icon className="h-5 w-5" />
+                {cards.map((card) => {
+                  const Icon = card.icon;
+                  const inner = (
+                    <>
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center border-2 border-sunset bg-input-bg text-sunset">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] uppercase tracking-widest text-muted-foreground">
+                          {card.label}
+                        </p>
+                        <p className="text-sm text-cream">{card.value}</p>
+                      </div>
+                    </>
+                  );
+                  const cls =
+                    "pixel-card pixel-card-hover flex items-center gap-4 p-4";
+                  return "href" in card && card.href ? (
+                    <a
+                      key={card.label}
+                      href={card.href}
+                      className={cls}
+                      {...(card.external
+                        ? { target: "_blank", rel: "noreferrer" }
+                        : {})}
+                    >
+                      {inner}
+                    </a>
+                  ) : (
+                    <div key={card.label} className={cls}>
+                      {inner}
                     </div>
-                    <div>
-                      <p className="text-[10px] uppercase tracking-widest text-muted-foreground">
-                        {label}
-                      </p>
-                      <p className="text-sm text-cream">{value}</p>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
               <div className="flex flex-wrap gap-4">
