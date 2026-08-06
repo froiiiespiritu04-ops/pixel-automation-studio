@@ -12,6 +12,8 @@ import jobShot from "@/assets/job-application-ai.png.asset.json";
 import { ToolMarquee } from "@/components/ToolMarquee";
 import { ProjectCard, type Project } from "@/components/ProjectCard";
 import { Reveal } from "@/components/Reveal";
+import { BookCall } from "@/components/BookCall";
+
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -222,7 +224,9 @@ function Home() {
       <Projects />
       <WorkflowGallery />
       <Services />
+      <BookCall />
       <Contact />
+
       <Footer />
     </div>
   );
@@ -236,7 +240,9 @@ function Nav() {
     ["Projects", "#projects"],
     ["Gallery", "#gallery"],
     ["Services", "#services"],
+    ["Book a Call", "#book"],
     ["Contact", "#contact"],
+
   ];
   return (
     <header className="sticky top-0 z-40 border-b-2 border-border bg-background/95 backdrop-blur">
