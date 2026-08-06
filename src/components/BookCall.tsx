@@ -40,7 +40,7 @@ export function BookCall() {
       />
       {/* lamp glow */}
       <div
-        className="pointer-events-none absolute -top-16 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full lamp-glow"
+        className="pointer-events-none absolute -top-16 left-[calc(50%-8rem)] h-64 w-64 rounded-full lamp-glow"
         style={{
           background:
             "radial-gradient(circle, rgba(232,138,74,0.28) 0%, rgba(232,138,74,0) 70%)",
