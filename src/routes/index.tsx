@@ -527,12 +527,36 @@ function Contact() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
 
   const cards = [
-    { icon: Mail, label: "Email", value: "hello@auto.dev" },
-    { icon: Phone, label: "Phone", value: "+63 900 000 0000" },
+    {
+      icon: Mail,
+      label: "Email",
+      value: "froiiiespiritu04@gmail.com",
+      href: "mailto:froiiiespiritu04@gmail.com",
+      external: false,
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: "+63 927 514 3811",
+      href: "tel:+639275143811",
+      external: false,
+    },
     { icon: MapPin, label: "Location", value: "Philippines — Remote" },
-    { icon: Linkedin, label: "LinkedIn", value: "/in/automation-specialist" },
-    { icon: Github, label: "GitHub", value: "@automation-specialist" },
-  ];
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: "/in/froilan-espiritu-2a79603aa/",
+      href: "https://www.linkedin.com/in/froilan-espiritu-2a79603aa/",
+      external: true,
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      value: "@froiiiespiritu04-ops",
+      href: "https://github.com/froiiiespiritu04-ops",
+      external: true,
+    },
+  ] as const;
 
   return (
     <section
