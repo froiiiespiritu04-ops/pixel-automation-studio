@@ -12,7 +12,7 @@ import jobShot from "@/assets/job-application-ai.png";
 import { ToolMarquee } from "@/components/ToolMarquee";
 import { ProjectCard, type Project } from "@/components/ProjectCard";
 import { Reveal } from "@/components/Reveal";
-import { BookCall } from "@/components/BookCall";
+
 
 
 export const Route = createFileRoute("/")({
@@ -224,13 +224,13 @@ function Home() {
       <Projects />
       <WorkflowGallery />
       <Services />
-      <BookCall />
       <Contact />
 
       <Footer />
     </div>
   );
 }
+
 
 /* ---------- Nav ---------- */
 function Nav() {
@@ -240,10 +240,10 @@ function Nav() {
     ["Projects", "#projects"],
     ["Gallery", "#gallery"],
     ["Services", "#services"],
-    ["Book a Call", "#book"],
     ["Contact", "#contact"],
 
   ];
+
   return (
     <header className="sticky top-0 z-40 border-b-2 border-border bg-background/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
@@ -724,10 +724,21 @@ function Contact() {
                   placeholder="Tell me about the workflow you have in mind..."
                 />
               </div>
-              <button type="submit" className="pixel-btn w-full">
-                <Send className="mr-2 h-4 w-4" />
-                {status === "sent" ? "✦ Message Sent!" : "Send Message"}
-              </button>
+              <div className="flex flex-col gap-3 md:flex-row">
+                <button type="submit" className="pixel-btn w-full md:w-auto md:flex-1">
+                  <Send className="mr-2 h-4 w-4" />
+                  {status === "sent" ? "✦ Message Sent!" : "Send Message"}
+                </button>
+                <a
+                  href="https://calendly.com/froiiiespiritu04/new-meeting"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pixel-btn-outline w-full md:w-auto md:flex-1 text-center"
+                >
+                  Book a Call
+                </a>
+              </div>
+
             </form>
           </div>
         </Reveal>
