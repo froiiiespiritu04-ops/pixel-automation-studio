@@ -731,8 +731,6 @@ function Contact() {
                 </button>
                 <a
                   href="https://calendly.com/froiiiespiritu04/new-meeting"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="pixel-btn-outline w-full md:w-auto md:flex-1 text-center"
                 >
                   Book a Call
