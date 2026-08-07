@@ -3,11 +3,11 @@ import { useState } from "react";
 import { Mail, Phone, MapPin, Linkedin, Github, Send } from "lucide-react";
 
 import heroImg from "@/assets/hero-rooftop.png";
-import headshot from "@/assets/headshot.png.asset.json";
-import zapierShot from "@/assets/zapier-ai-content.png.asset.json";
-import makeShot from "@/assets/make-asana-xero.png.asset.json";
-import fbShot from "@/assets/facebook-ai-agent.png.asset.json";
-import jobShot from "@/assets/job-application-ai.png.asset.json";
+import headshot from "@/assets/headshot.png";
+import zapierShot from "@/assets/zapier-ai-content.png";
+import makeShot from "@/assets/make-asana-xero.png";
+import fbShot from "@/assets/facebook-ai-agent.png";
+import jobShot from "@/assets/job-application-ai.png";
 
 import { ToolMarquee } from "@/components/ToolMarquee";
 import { ProjectCard, type Project } from "@/components/ProjectCard";
@@ -24,7 +24,7 @@ const projects: Project[] = [
     title: "AI Content Repurposing Automation",
     summary:
       "Turns a single uploaded audio/video into a transcription, an AI-generated blog post, and multi-platform social posts pushed to Facebook and LinkedIn — automatically.",
-    screenshot: zapierShot.url,
+    screenshot: zapierShot,
     tech: ["Zapier", "OpenAI", "Google Drive", "Facebook Pages", "LinkedIn"],
     problem:
       "Content creators spend hours manually transcribing, writing blog posts, and reformatting the same content for each social platform.",
@@ -70,7 +70,7 @@ const projects: Project[] = [
     title: "Asana → Xero Automation",
     summary:
       "Syncs completed Asana tasks with Xero, logs everything to Google Sheets, and generates a summary report back into Asana as an attachment.",
-    screenshot: makeShot.url,
+    screenshot: makeShot,
     tech: ["Make.com", "Asana", "Xero", "Google Sheets"],
     problem:
       "Finance teams manually copy completed project tasks into invoicing tools and spreadsheets, then re-generate summary reports for project managers.",
@@ -117,7 +117,7 @@ const projects: Project[] = [
     title: "AI Agent for Facebook Messenger",
     summary:
       "An n8n chatbot that answers customer inquiries 24/7 on Facebook Messenger using a custom FAQ knowledge base — no human agent needed for common questions.",
-    screenshot: fbShot.url,
+    screenshot: fbShot,
     tech: ["n8n", "Facebook Messenger", "Google Gemini", "FAQ Knowledge Base"],
     problem:
       "Small businesses lose leads on Messenger because common questions go unanswered overnight, and hiring a 24/7 agent isn't realistic.",
@@ -158,7 +158,7 @@ const projects: Project[] = [
     title: "AI Job Application Automation",
     summary:
       "An n8n workflow that searches jobs, tailors a resume with AI, saves it to Google Drive, drafts an email with the resume attached, and notifies Slack when each application is ready.",
-    screenshot: jobShot.url,
+    screenshot: jobShot,
     tech: ["n8n", "Slack", "OpenRouter", "Google Drive", "Gmail"],
     problem:
       "Applying to jobs manually — searching, tailoring a resume, saving files, drafting emails — takes hours per role and kills consistency.",
@@ -347,7 +347,7 @@ function About() {
               }}
             >
               <img
-                src={headshot.url}
+                src={headshot}
                 alt="Portrait of Froilan, automation specialist"
                 className="block h-full w-full rounded-full object-cover"
               />
@@ -438,10 +438,10 @@ function Projects() {
 /* ---------- Workflow Gallery ---------- */
 function WorkflowGallery() {
   const items = [
-    { src: fbShot.url, title: "AI Agent for Facebook Messenger", tag: "n8n • Gemini" },
-    { src: jobShot.url, title: "AI Job Application Assistant", tag: "n8n • OpenRouter • Slack" },
-    { src: zapierShot.url, title: "AI Content Repurposing", tag: "Zapier" },
-    { src: makeShot.url, title: "Asana ↔ Xero Sync", tag: "Make.com" },
+    { src: fbShot, title: "AI Agent for Facebook Messenger", tag: "n8n • Gemini" },
+    { src: jobShot, title: "AI Job Application Assistant", tag: "n8n • OpenRouter • Slack" },
+    { src: zapierShot, title: "AI Content Repurposing", tag: "Zapier" },
+    { src: makeShot, title: "Asana ↔ Xero Sync", tag: "Make.com" },
   ];
   return (
     <section id="gallery" className="border-b-2 border-border bg-olive-brown py-20">
