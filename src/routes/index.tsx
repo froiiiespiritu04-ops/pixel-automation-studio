@@ -12,6 +12,8 @@ import jobShot from "@/assets/job-application-ai.png";
 import { ToolMarquee } from "@/components/ToolMarquee";
 import { ProjectCard, type Project } from "@/components/ProjectCard";
 import { Reveal } from "@/components/Reveal";
+import { CalendlyInline } from "@/components/CalendlyInline";
+
 
 
 
@@ -534,6 +536,8 @@ function Services() {
 function Contact() {
   const [status, setStatus] = useState<"idle" | "sent">("idle");
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [showCal, setShowCal] = useState(false);
+
 
   const cards = [
     {
@@ -729,13 +733,16 @@ function Contact() {
                   <Send className="mr-2 h-4 w-4" />
                   {status === "sent" ? "✦ Message Sent!" : "Send Message"}
                 </button>
-                <a
-                  href="https://calendly.com/froiiiespiritu04/new-meeting"
+                <button
+                  type="button"
+                  onClick={() => setShowCal((v) => !v)}
                   className="pixel-btn-outline w-full md:w-auto md:flex-1 text-center"
                 >
-                  Book a Call
-                </a>
+                  {showCal ? "Hide Calendar" : "Book Call (Calendly)"}
+                </button>
               </div>
+              {showCal && <CalendlyInline />}
+
 
             </form>
           </div>
