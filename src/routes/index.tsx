@@ -12,6 +12,8 @@ import jobShot from "@/assets/job-application-ai.png";
 import { ToolMarquee } from "@/components/ToolMarquee";
 import { ProjectCard, type Project } from "@/components/ProjectCard";
 import { Reveal } from "@/components/Reveal";
+import { CalendlyInline } from "@/components/CalendlyInline";
+
 
 
 
