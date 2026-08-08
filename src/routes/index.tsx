@@ -534,6 +534,8 @@ function Services() {
 function Contact() {
   const [status, setStatus] = useState<"idle" | "sent">("idle");
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [showCal, setShowCal] = useState(false);
+
 
   const cards = [
     {
