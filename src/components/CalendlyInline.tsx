@@ -44,10 +44,12 @@ export function CalendlyInline() {
   return (
     <div className="mt-6 border-2 border-border bg-[#38281d] p-2">
       <div
+        id="calendly-inline-widget"
         ref={ref}
         className="w-full"
-        style={{ minWidth: "280px", height: "clamp(560px, 70vh, 700px)" }}
+        style={{ minWidth: "280px", height: "clamp(600px, 75vh, 720px)" }}
       />
+
     </div>
   );
 }
