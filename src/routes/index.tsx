@@ -8,6 +8,7 @@ import zapierShot from "@/assets/zapier-ai-content.png";
 import makeShot from "@/assets/make-asana-xero.png";
 import fbShot from "@/assets/facebook-ai-agent.png";
 import jobShot from "@/assets/job-application-ai.png";
+import ghlShot from "@/assets/ghl-n8n-leads.png";
 
 import { ToolMarquee } from "@/components/ToolMarquee";
 import { ProjectCard, type Project } from "@/components/ProjectCard";
