@@ -203,6 +203,59 @@ const projects: Project[] = [
       complexitySub: "Modules: 15+",
     },
   },
+  {
+    title: "GHL + n8n Lead Management Automation",
+    summary:
+      "Automated lead processing system that connects GoHighLevel with n8n to qualify leads, update CRM records, apply tags, and notify the team through Slack.",
+    screenshot: ghlShot,
+    tech: ["n8n", "GoHighLevel", "Slack", "REST API", "Webhooks"],
+    problem:
+      "Manually reviewing new leads, checking their inquiry type and budget, updating CRM records, and notifying the team takes time and can cause high-value leads to be missed.",
+    solution:
+      "An n8n workflow receives new leads from GoHighLevel through a webhook, cleans the data, retrieves and updates the contact through the GHL API, identifies buyer inquiries, checks the lead's budget, applies the correct GHL tags, and sends Slack notifications to the team.",
+    steps: [
+      "Lead Received — GHL sends a new lead to the n8n webhook.",
+      "Clean Lead Data — the workflow organizes the contact information into a consistent format.",
+      "Retrieve GHL Contact — the workflow retrieves the contact from GoHighLevel using the GHL API.",
+      "Update Contact — contact information is updated in GHL using an HTTP PUT request.",
+      "Check Inquiry Type — the workflow checks whether the lead is a buyer inquiry.",
+      "Buyer Lead Route — buyer leads are tagged in GHL and a Slack notification is sent to the team.",
+      "General Lead Route — general leads are routed separately and the team receives a general lead notification.",
+      "Check Budget — the workflow checks whether the lead meets the high-budget criteria.",
+      "High-Priority Lead — high-budget leads trigger a high-priority Slack alert and receive a high-priority tag in GHL.",
+    ],
+    skills: [
+      "n8n Workflow Automation",
+      "Webhook Integration",
+      "REST API Integration",
+      "HTTP GET & PUT Requests",
+      "JSON Data Handling",
+      "Conditional Logic & Routing",
+      "GoHighLevel CRM Automation",
+      "Automated Lead Tagging",
+      "Slack Notifications",
+      "Lead Qualification",
+    ],
+    stats: {
+      modules: "10+",
+      apps: "3",
+      type: "Lead Management + CRM Automation",
+      difficulty: "Intermediate",
+      status: "Working Demo",
+      builtWith: "n8n • GoHighLevel • Slack",
+    },
+    impact: {
+      timeSaved: "Less Manual Lead Processing",
+      operationalImpact: "Faster Lead Response",
+      apps: {
+        count: "3 Apps",
+        names: "n8n • GoHighLevel • Slack",
+      },
+      complexity: "Intermediate",
+      complexitySub:
+        "Webhooks • API Requests • Conditional Routing • CRM Updates • Automated Notifications",
+    },
+  },
 ];
 
 const services = [
