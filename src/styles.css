@@ -1393,3 +1393,50 @@ details[open] summary svg {
     padding: 12px 24px 0;
   }
 }
+/* Low-light surfaces with restrained depth; text contrast stays unchanged. */
+:root {
+  --background: #050810;
+  --card: #0b1321;
+}
+.hero {
+  background:
+    radial-gradient(ellipse at 82% 40%, rgba(39, 65, 109, 0.18), transparent 52%),
+    radial-gradient(ellipse at 12% 8%, rgba(130, 93, 60, 0.055), transparent 44%),
+    linear-gradient(145deg, #04060b, #090e19 65%, #050810);
+}
+.site-header {
+  background: rgba(5, 8, 16, 0.95);
+}
+.tool-marquee {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(39, 60, 94, 0.18), transparent 62%),
+    linear-gradient(120deg, #04070d, #080d17 52%, #05080e);
+}
+.tool-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0;
+  color: #b5c6e5;
+}
+.work-section {
+  background:
+    radial-gradient(ellipse at 95% 25%, rgba(31, 50, 77, 0.15), transparent 55%),
+    linear-gradient(150deg, #060b13, #090f1b 60%, #050911);
+}
+#services {
+  background:
+    radial-gradient(ellipse at 0% 50%, rgba(72, 87, 110, 0.07), transparent 60%),
+    linear-gradient(115deg, #050910, #080d16);
+}
+#about {
+  background:
+    radial-gradient(ellipse at 17% 38%, rgba(135, 91, 53, 0.105), transparent 37%),
+    radial-gradient(ellipse at 80% 25%, rgba(35, 56, 85, 0.12), transparent 52%),
+    linear-gradient(125deg, #030509, #070b12 48%, #04070d);
+}
+.contact-section {
+  background:
+    radial-gradient(ellipse at 15% 80%, rgba(30, 49, 80, 0.23), transparent 65%),
+    linear-gradient(125deg, #060a11, #0b1220);
+}

@@ -41,11 +41,11 @@ function Home() {
       </header>
       <main id="main">
         <Hero />
+        <About />
         <ToolMarquee />
         <Services />
         <Projects />
         <Proof />
-        <About />
         <Contact />
       </main>
       <Footer />

@@ -1,3 +1,4 @@
+import { Webhook, Braces } from "lucide-react";
 const tools = [
   { name: "n8n", color: "#EA4B71" },
   { name: "Zapier", color: "#FF4A00" },
@@ -18,14 +19,23 @@ const tools = [
   { name: "APIs", color: "#6B7040" },
 ];
 
-function Chip({ name, color }: { name: string; color: string }) {
+function Chip({ name }: { name: string; color: string }) {
   return (
     <div className="tool-card pixel-card mx-3 inline-flex shrink-0 items-center gap-3 px-4 py-3">
-      <span
-        aria-hidden
-        className="inline-block h-3 w-3"
-        style={{ backgroundColor: color, boxShadow: "1px 1px 0 rgba(0,0,0,0.4)" }}
-      />
+      {name === "Webhooks" ? (
+        <Webhook className="tool-logo" aria-hidden />
+      ) : name === "APIs" ? (
+        <Braces className="tool-logo" aria-hidden />
+      ) : (
+        <img
+          className="tool-logo"
+          src={`/tool-logos/${name === "HighLevel" ? "highlevel.png" : name.toLowerCase().replaceAll(" ", "") + ".svg"}`}
+          width={28}
+          height={28}
+          alt=""
+          aria-hidden
+        />
+      )}
       <span className="text-sm text-cream tracking-wider">{name}</span>
     </div>
   );

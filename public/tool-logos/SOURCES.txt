@@ -1,0 +1,4 @@
+Brand glyph sources: Simple Icons (CC0), https://github.com/simple-icons/simple-icons.
+Current glyphs retrieved from develop on 2026-09-11; OpenAI and Slack from 11.15.0.
+HighLevel icon: https://www.gohighlevel.com/ official favicon, https://storage.googleapis.com/msgsndr/knES3eSWYIsc5YSZ3YLl/media/62b48689c85eccb36ca941fc.png.
+Brand marks remain property of their respective owners. Webhooks and APIs use existing Lucide interface icons.
