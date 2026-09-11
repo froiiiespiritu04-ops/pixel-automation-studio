@@ -77,13 +77,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Automation Specialist Portfolio — Workflow & AI Automations" },
+      { title: "Froilan Espiritu | AI Automation Specialist" },
       {
         name: "description",
         content:
-          "Automation Specialist building n8n, Zapier & Make.com workflows that save businesses hours every week.",
+          "AI automation for service businesses. Froilan Espiritu builds n8n and GoHighLevel workflows for lead handling, CRM updates, and faster follow-ups.",
       },
-      { property: "og:title", content: "Automation Specialist Portfolio" },
+      { property: "og:title", content: "Froilan Espiritu | AI Automation Specialist" },
       {
         property: "og:description",
         content:
@@ -97,7 +97,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;650;700&display=swap",
       },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },

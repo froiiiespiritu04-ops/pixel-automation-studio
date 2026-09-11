@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 const CALENDLY_URL =
   "https://calendly.com/froiiiespiritu04/new-meeting" +
   "?hide_landing_page_details=1&hide_event_type_details=1&hide_gdpr_banner=1" +
-  "&background_color=38281d&text_color=f0e0cc&primary_color=c96f39";
+  "&background_color=101a2d&text_color=f1f5fc&primary_color=99b4ff";
 
 declare global {
   interface Window {
@@ -42,14 +42,13 @@ export function CalendlyInline() {
   }, []);
 
   return (
-    <div className="mt-6 border-2 border-border bg-[#38281d] p-2">
+    <div className="mt-6 rounded-lg border border-border bg-card p-2">
       <div
         id="calendly-inline-widget"
         ref={ref}
         className="w-full"
-        style={{ minWidth: "280px", height: "clamp(600px, 75vh, 720px)" }}
+        style={{ minWidth: "0", height: "clamp(600px, 75vh, 720px)" }}
       />
-
     </div>
   );
 }
