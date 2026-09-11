@@ -20,7 +20,7 @@ const tools = [
 
 function Chip({ name, color }: { name: string; color: string }) {
   return (
-    <div className="pixel-card mx-3 inline-flex shrink-0 items-center gap-3 px-4 py-3">
+    <div className="tool-card pixel-card mx-3 inline-flex shrink-0 items-center gap-3 px-4 py-3">
       <span
         aria-hidden
         className="inline-block h-3 w-3"
@@ -32,27 +32,33 @@ function Chip({ name, color }: { name: string; color: string }) {
 }
 
 function Row({ direction }: { direction: "left" | "right" }) {
-  const dup = [...tools, ...tools];
   return (
     <div className="marquee-row overflow-hidden py-2">
-      <div
-        className={`marquee-track flex w-max ${direction === "left" ? "marquee-left" : "marquee-right"}`}
-      >
-        {dup.map((t, i) => (
-          <Chip key={`${direction}-${i}`} name={t.name} color={t.color} />
+      <div className={`marquee-track flex w-max marquee-${direction}`}>
+        {[false, true].map((duplicate) => (
+          <div
+            className="marquee-group"
+            key={String(duplicate)}
+            aria-hidden={duplicate || undefined}
+          >
+            {tools.map((tool) => (
+              <Chip key={tool.name} {...tool} />
+            ))}
+          </div>
         ))}
       </div>
     </div>
   );
 }
-
 export function ToolMarquee() {
   return (
-    <section className="border-y-2 border-border bg-olive-brown py-16">
+    <section
+      id="skills"
+      aria-label="Tools and platforms"
+      className="tool-marquee border-y-2 border-border bg-olive-brown py-16"
+    >
       <div className="mx-auto max-w-7xl px-4 text-center">
-        <p className="mb-8 text-sm tracking-widest text-sunset">
-          ◆ STACKS I PLUG INTO ◆
-        </p>
+        <p className="mb-8 text-sm tracking-widest text-sunset">◆ STACKS I PLUG INTO ◆</p>
       </div>
       <div className="space-y-2">
         <Row direction="left" />

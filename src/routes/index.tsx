@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import headshot from "@/assets/headshot.png";
 import { ProjectCard } from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
+import { ToolMarquee } from "@/components/ToolMarquee";
 import { CalendlyInline } from "@/components/CalendlyInline";
 import { createFileRoute } from "@tanstack/react-router";
 import {
@@ -40,6 +41,7 @@ function Home() {
       </header>
       <main id="main">
         <Hero />
+        <ToolMarquee />
         <Services />
         <Projects />
         <Proof />
@@ -85,16 +87,6 @@ function Hero() {
           </div>
         </div>
         <WorkflowVisual />
-      </div>
-      <div className="container tool-strip" id="skills">
-        <span>YOUR TOOLS. WORKING TOGETHER.</span>
-        <div>
-          <strong>n8n</strong>
-          <strong>GoHighLevel</strong>
-          <strong>OpenAI</strong>
-          <strong>APIs & Webhooks</strong>
-          <strong>Slack</strong>
-        </div>
       </div>
     </section>
   );
@@ -378,14 +370,12 @@ function Contact() {
   const [prepared, setPrepared] = useState(false);
   useEffect(() => {
     if (showCal)
-      document
-        .getElementById("booking")
-        ?.scrollIntoView({
-          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-            ? "instant"
-            : "smooth",
-          block: "start",
-        });
+      document.getElementById("booking")?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "instant"
+          : "smooth",
+        block: "start",
+      });
   }, [showCal]);
   return (
     <section className="section contact-section" id="contact">
