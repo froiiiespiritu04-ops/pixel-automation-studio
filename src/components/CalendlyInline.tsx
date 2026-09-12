@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 const CALENDLY_URL =
   "https://calendly.com/froiiiespiritu04/new-meeting" +
   "?hide_landing_page_details=1&hide_event_type_details=1&hide_gdpr_banner=1" +
-  "&background_color=101a2d&text_color=f1f5fc&primary_color=99b4ff";
+  "&background_color=18191d&text_color=f3f1ed&primary_color=e1b48f";
 
 declare global {
   interface Window {

@@ -40,27 +40,27 @@
 
 :root {
   --radius: 0.75rem;
-  --background: #090f1e;
+  --background: #131314;
   --foreground: #f1f5fc;
-  --card: #101a2d;
+  --card: #1e1e1f;
   --card-foreground: #f1f5fc;
-  --popover: #101a2d;
+  --popover: #1e1e1f;
   --popover-foreground: #f1f5fc;
-  --primary: #99b4ff;
-  --primary-foreground: #090f1e;
-  --secondary: #17243a;
+  --primary: #e1b48f;
+  --primary-foreground: #131314;
+  --secondary: #27282a;
   --secondary-foreground: #f1f5fc;
-  --muted: #17243a;
-  --muted-foreground: #a4b2c9;
-  --accent: #172d50;
+  --muted: #27282a;
+  --muted-foreground: #b1b3bb;
+  --accent: #323235;
   --accent-foreground: #f1f5fc;
   --destructive: #f87171;
-  --border: #243047;
-  --input: #34445f;
-  --ring: #99b4ff;
-  --sunset: #99b4ff;
+  --border: #343437;
+  --input: #47484b;
+  --ring: #e1b48f;
+  --sunset: #e1b48f;
   --cream: #f1f5fc;
-  --beige: #a4b2c9;
+  --beige: #b1b3bb;
 }
 * {
   box-sizing: border-box;
@@ -100,7 +100,7 @@ button {
 a:focus-visible,
 button:focus-visible,
 summary:focus-visible {
-  outline: 2px solid #a9c1ff;
+  outline: 2px solid #e1b48f;
   outline-offset: 5px;
 }
 h1,
@@ -128,7 +128,7 @@ svg {
   position: sticky;
   top: 0;
   z-index: 40;
-  background: #090f1eeb;
+  background: #131314eb;
   backdrop-filter: blur(18px);
   border-bottom: 1px solid #ffffff0c;
 }
@@ -148,28 +148,28 @@ svg {
   font-weight: 650;
 }
 .brand-dot {
-  color: #89aaff;
+  color: #e1b48f;
   margin-left: -8px;
 }
 .brand-mark {
-  color: #a2bcff;
+  color: #e1b48f;
   display: grid;
   place-items: center;
   width: 33px;
   height: 33px;
-  background: #182a4c;
-  border: 1px solid #345080;
+  background: #313133;
+  border: 1px solid #57585c;
   border-radius: 9px;
 }
 .nav-row nav {
   display: flex;
   gap: 32px;
-  color: #b3bfd3;
+  color: #bdbfc8;
   font-size: 14px;
 }
 .nav-row nav a:hover,
 .text-link:hover {
-  color: #a8c1ff;
+  color: #e1b48f;
 }
 .button {
   display: inline-flex;
@@ -178,10 +178,10 @@ svg {
   gap: 14px;
   min-height: 49px;
   padding: 13px 20px;
-  border: 1px solid #a9c0ff;
+  border: 1px solid #e1b48f;
   border-radius: 7px;
-  background: #a8bfff;
-  color: #101a30;
+  background: #e1b48f;
+  color: #1f1f21;
   font-size: 13px;
   font-weight: 650;
   transition:
@@ -189,7 +189,7 @@ svg {
     transform 0.2s;
 }
 .button:hover {
-  background: #c6d5ff;
+  background: #e1b48f;
   transform: translateY(-2px);
 }
 .button.small {
@@ -198,8 +198,8 @@ svg {
 }
 .button.secondary {
   background: transparent;
-  color: #dce7ff;
-  border-color: #3f5070;
+  color: #e6e9f3;
+  border-color: #55565a;
 }
 .button-row {
   display: flex;
@@ -215,7 +215,7 @@ svg {
   font-weight: 550;
 }
 .hero {
-  background: radial-gradient(ellipse at 81% 34%, #172c543f, transparent 48%);
+  background: radial-gradient(ellipse at 81% 34%, #3434373f, transparent 48%);
 }
 .hero-grid {
   display: grid;
@@ -232,7 +232,7 @@ svg {
   font-size: 10px;
   font-weight: 650;
   letter-spacing: 2px;
-  color: #a3bbf4;
+  color: #e1b48f;
   margin-bottom: 26px;
 }
 .status-dot {
@@ -251,12 +251,12 @@ h1 {
   font-weight: 550;
 }
 h1 span {
-  color: #9cb9ff;
+  color: #e1b48f;
 }
 .hero-description {
   font-size: 15px;
   line-height: 1.85;
-  color: #aab8ce;
+  color: #b6b8c1;
   max-width: 480px;
   margin: 25px 0 30px;
 }
@@ -266,7 +266,7 @@ h1 span {
   gap: 10px;
   margin-top: 35px;
   font-size: 10px;
-  color: #d7e0f0;
+  color: #dddfe9;
 }
 .hero-signoff .muted {
   display: block;
@@ -277,15 +277,15 @@ h1 span {
   place-items: center;
   width: 34px;
   height: 34px;
-  border: 1px solid #354967;
+  border: 1px solid #4c4c50;
   border-radius: 50%;
   font-size: 10px;
-  background: #19273d;
+  background: #2a2a2c;
 }
 .workflow-visual {
-  border: 1px solid #2b3c5d;
+  border: 1px solid #424346;
   border-radius: 12px;
-  background: radial-gradient(#789ed216 0.8px, transparent 0.8px), #0d1729;
+  background: radial-gradient(#e1b48f16 0.8px, transparent 0.8px), #1a1a1c;
   background-size: 17px 17px;
   box-shadow: 0 24px 80px #0003;
   transform: rotate(-1deg);
@@ -295,12 +295,12 @@ h1 span {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #27374e;
-  background: #111b2ded;
+  border-bottom: 1px solid #39393c;
+  background: #1e1e20ed;
   font-size: 8px;
   letter-spacing: 1px;
   border-radius: 12px 12px 0 0;
-  color: #adbad0;
+  color: #b9bbc3;
   gap: 8px;
 }
 .workflow-heading > span:first-child {
@@ -310,10 +310,10 @@ h1 span {
 }
 .workflow-label {
   font-size: 7px;
-  border: 1px solid #344863;
+  border: 1px solid #494a4d;
   border-radius: 4px;
   padding: 4px 6px;
-  color: #b3c8ed;
+  color: #e1b48f;
 }
 .flow {
   padding: 30px 30px 26px;
@@ -325,8 +325,8 @@ h1 span {
   gap: 13px;
   align-items: center;
   padding: 17px;
-  background: #152138;
-  border: 1px solid #34445f;
+  background: #252627;
+  border: 1px solid #47484b;
   border-radius: 8px;
   box-shadow: 0 8px 15px #0001;
 }
@@ -338,7 +338,7 @@ h1 span {
 .flow-node small {
   display: block;
   font-size: 10px;
-  color: #a3b3cd;
+  color: #b2b4bd;
   margin-top: 5px;
 }
 .node-icon {
@@ -347,8 +347,8 @@ h1 span {
   width: 34px;
   height: 34px;
   border-radius: 7px;
-  background: #233656;
-  color: #afc6ff;
+  background: #3b3b3e;
+  color: #e1b48f;
 }
 .node-icon svg {
   width: 17px;
@@ -361,13 +361,13 @@ h1 span {
   display: block;
   width: 1px;
   height: 26px;
-  background: #627faf;
+  background: #84868c;
   margin: auto;
 }
 .featured-node {
-  border-color: #668ac6;
-  background: #1c3050;
-  box-shadow: 0 0 24px #5489e813;
+  border-color: #e1b48f;
+  background: #343537;
+  box-shadow: 0 0 24px #e1b48f13;
 }
 .flow-branch {
   display: grid;
@@ -379,10 +379,10 @@ h1 span {
   gap: 6px;
   text-align: center;
   padding: 18px 6px;
-  color: #b6ccff;
+  color: #e1b48f;
 }
 .compact strong {
-  color: #e4edff;
+  color: #eaedf8;
   font-size: 10px;
 }
 .compact small {
@@ -394,17 +394,17 @@ h1 span {
   align-items: center;
   gap: 8px;
   padding: 16px 18px;
-  border-top: 1px solid #27374e;
+  border-top: 1px solid #39393c;
   font-size: 9px;
-  color: #aabcda;
-  background: #111b2deb;
+  color: #e1b48f;
+  background: #1e1e20eb;
   border-radius: 0 0 12px 12px;
 }
 .workflow-footer > svg {
   margin-left: auto;
 }
 .tool-strip {
-  border-top: 1px solid #243047;
+  border-top: 1px solid #343437;
   display: flex;
   align-items: center;
   gap: 38px;
@@ -414,7 +414,7 @@ h1 span {
 .tool-strip > span {
   font-size: 8px;
   letter-spacing: 1.4px;
-  color: #7d8faa;
+  color: #8f9197;
   max-width: 140px;
   line-height: 1.7;
 }
@@ -429,7 +429,7 @@ h1 span {
 .tool-strip strong {
   font-weight: 550;
   font-size: 17px;
-  color: #bdc8db;
+  color: #c6c8d1;
   letter-spacing: -0.5px;
 }
 .skip-link {
@@ -550,7 +550,7 @@ h1 span {
 }
 .section {
   padding: 92px 0;
-  border-top: 1px solid #202d43;
+  border-top: 1px solid #303133;
 }
 .section-heading {
   display: flex;
@@ -563,7 +563,7 @@ h1 span {
   max-width: 320px;
   font-size: 14px;
   line-height: 1.8;
-  color: #a4b2c9;
+  color: #b1b3bb;
 }
 .section .eyebrow {
   margin-bottom: 17px;
@@ -582,7 +582,7 @@ h3 {
 .service-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border: 1px solid #27344a;
+  border: 1px solid #37373a;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -590,9 +590,9 @@ h3 {
   padding: 30px 27px;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(140deg, #111b2b80, #0c142300);
-  border-right: 1px solid #27344a;
-  border-bottom: 1px solid #27344a;
+  background: linear-gradient(140deg, #1d1d1f80, #17171800);
+  border-right: 1px solid #37373a;
+  border-bottom: 1px solid #37373a;
 }
 .service:nth-child(3n) {
   border-right: 0;
@@ -601,7 +601,7 @@ h3 {
   border-bottom: 0;
 }
 .service-icon {
-  color: #a3beff;
+  color: #e1b48f;
   margin-bottom: 22px;
 }
 .service h3 {
@@ -611,14 +611,14 @@ h3 {
 .service > p {
   font-size: 13px;
   line-height: 1.9;
-  color: #9eafc7;
+  color: #adafb7;
   margin-bottom: 21px;
 }
 .service-outcome {
   display: flex;
   align-items: flex-start;
   gap: 7px;
-  color: #bed0ee;
+  color: #e1b48f;
   font-size: 10px;
   line-height: 1.6;
   margin-top: auto;
@@ -627,13 +627,13 @@ h3 {
   margin-top: 2px;
 }
 .work-section {
-  background: #0c1424;
+  background: #171819;
 }
 .project-card {
-  border: 1px solid #2a3850;
+  border: 1px solid #3b3c3f;
   border-radius: 10px;
   overflow: hidden;
-  background: #111c2e;
+  background: #1f1f20;
   min-width: 0;
 }
 .project-featured {
@@ -642,7 +642,7 @@ h3 {
   margin-bottom: 24px;
 }
 .project-image {
-  background: radial-gradient(ellipse at center, #24334c, #0c1525);
+  background: radial-gradient(ellipse at center, #363739, #181819);
   padding: 26px;
   display: flex;
   align-items: center;
@@ -675,12 +675,12 @@ h3 {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  border: 1px solid #6d83a5;
-  background: #0d182aee;
+  border: 1px solid #85868c;
+  background: #1b1b1cee;
   border-radius: 5px;
   font-size: 9px;
   padding: 7px 9px;
-  color: #e3edff;
+  color: #eaecf7;
 }
 .project-body {
   padding: 31px;
@@ -699,7 +699,7 @@ h3 {
 .project-body > p {
   font-size: 13px;
   line-height: 1.85;
-  color: #a9b9d0;
+  color: #b7b9c1;
 }
 .tags {
   display: flex;
@@ -708,38 +708,38 @@ h3 {
   margin: 19px 0;
 }
 .tags span {
-  border: 1px solid #34445e;
+  border: 1px solid #47484b;
   border-radius: 4px;
   padding: 4px 7px;
   font-size: 9px;
-  color: #b8cbe9;
+  color: #e1b48f;
 }
 .project-outcome {
   margin: 22px 0;
-  border-left: 2px solid #789adb;
+  border-left: 2px solid #e1b48f;
   padding-left: 14px;
 }
 .project-outcome > span {
   font-size: 8px;
   letter-spacing: 1.3px;
-  color: #91abd2;
+  color: #e1b48f;
 }
 .project-outcome p {
   font-size: 12px;
   line-height: 1.7;
-  color: #d0ddf2;
+  color: #dadde7;
   margin-top: 7px;
 }
 summary {
   cursor: pointer;
   list-style: none;
   font-size: 11px;
-  color: #b9ceff;
+  color: #e1b48f;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 15px 0 0;
-  border-top: 1px solid #2b3b55;
+  border-top: 1px solid #3e3f42;
 }
 summary::-webkit-details-marker {
   display: none;
@@ -749,12 +749,12 @@ details[open] summary svg {
 }
 .case-study {
   font-size: 12px;
-  color: #acbed8;
+  color: #bcbec7;
   line-height: 1.8;
 }
 .case-study h4 {
   font-size: 12px;
-  color: #e1eaff;
+  color: #e9ebf6;
   margin: 21px 0 7px;
 }
 .case-study ol {
@@ -770,7 +770,7 @@ details[open] summary svg {
   max-width: 1100px !important;
   max-height: 90dvh;
   overflow: auto;
-  background: #101a2d;
+  background: #1e1e1f;
 }
 .workflow-dialog img {
   width: 100%;
@@ -811,7 +811,7 @@ details[open] summary svg {
   font-size: 11px;
 }
 .proof-section {
-  background: linear-gradient(110deg, #15243c, #0c1525);
+  background: linear-gradient(110deg, #27282a, #181819);
   padding: 62px 0;
 }
 .proof-grid {
@@ -829,11 +829,11 @@ details[open] summary svg {
 .proof-grid p {
   font-size: 12px;
   line-height: 1.85;
-  color: #a7b7cf;
+  color: #b5b7c0;
 }
 .proof-number {
   font-size: 10px;
-  color: #92afe4;
+  color: #e1b48f;
 }
 .about-grid {
   display: grid;
@@ -843,8 +843,8 @@ details[open] summary svg {
 }
 .portrait-wrap {
   position: relative;
-  background: #182238;
-  border: 1px solid #35415a;
+  background: #272729;
+  border: 1px solid #454649;
   border-radius: 12px;
   overflow: hidden;
   max-width: 390px;
@@ -860,7 +860,7 @@ details[open] summary svg {
   left: 0;
   right: 0;
   padding: 45px 24px 23px;
-  background: linear-gradient(transparent, #080e1fe8);
+  background: linear-gradient(transparent, #131314e8);
 }
 .portrait-caption strong {
   display: block;
@@ -869,7 +869,7 @@ details[open] summary svg {
 .portrait-caption span {
   display: block;
   font-size: 10px;
-  color: #bbcae1;
+  color: #c8cad3;
   margin-top: 6px;
 }
 .about-intro {
@@ -891,25 +891,25 @@ details[open] summary svg {
   gap: 35px;
   padding-top: 55px;
   margin-top: 55px;
-  border-top: 1px solid #27344a;
+  border-top: 1px solid #37373a;
 }
 .process span {
   font-size: 8px;
   letter-spacing: 1.5px;
-  color: #90acdf;
+  color: #e1b48f;
 }
 .process h3 {
   font-size: 16px;
   margin: 14px 0 10px;
 }
 .process p {
-  color: #a4b2c9;
+  color: #b1b3bb;
   font-size: 12px;
   line-height: 1.8;
   max-width: 280px;
 }
 .contact-section {
-  background: radial-gradient(ellipse at 15% 80%, #20376845, transparent 65%), #101a2c;
+  background: radial-gradient(ellipse at 15% 80%, #42434645, transparent 65%), #1d1d1f;
 }
 .contact-grid {
   display: grid;
@@ -921,12 +921,12 @@ details[open] summary svg {
   font-size: 45px;
 }
 .contact-section h2 span {
-  color: #a8c0fc;
+  color: #e1b48f;
 }
 .contact-intro {
   font-size: 14px;
   line-height: 1.85;
-  color: #a9bad4;
+  color: #b9bbc3;
   max-width: 350px;
   margin: 24px 0 28px;
 }
@@ -943,7 +943,7 @@ details[open] summary svg {
   flex-wrap: wrap;
   gap: 18px;
   font-size: 10px;
-  color: #a9bad4;
+  color: #b9bbc3;
 }
 .contact-links a {
   display: flex;
@@ -951,16 +951,16 @@ details[open] summary svg {
   align-items: center;
 }
 .contact-form {
-  border: 1px solid #33435f;
+  border: 1px solid #47484b;
   border-radius: 10px;
-  background: #121f33;
+  background: #212223;
   padding: 30px;
 }
 .contact-form h3 {
   font-size: 19px;
 }
 .contact-form > p {
-  color: #a4b2c9;
+  color: #b1b3bb;
   font-size: 12px;
   line-height: 1.8;
   margin-top: 12px;
@@ -969,7 +969,7 @@ details[open] summary svg {
 .contact-form label {
   display: block;
   font-size: 10px;
-  color: #c8d6eb;
+  color: #d3d5df;
   margin-bottom: 8px;
 }
 .contact-form input,
@@ -977,9 +977,9 @@ details[open] summary svg {
   display: block;
   width: 100%;
   min-width: 0;
-  border: 1px solid #384963;
+  border: 1px solid #4b4c4f;
   border-radius: 5px;
-  background: #0c1728;
+  background: #19191b;
   color: #edf3ff;
   padding: 11px 12px;
   font-size: 12px;
@@ -988,12 +988,12 @@ details[open] summary svg {
 }
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #a7c1ff;
-  box-shadow: 0 0 0 2px #7ca5ff35;
+  border-color: #e1b48f;
+  box-shadow: 0 0 0 2px #e1b48f35;
 }
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-  color: #8396b3;
+  color: #e1b48f;
 }
 .contact-form textarea {
   resize: vertical;
@@ -1010,10 +1010,10 @@ details[open] summary svg {
 .contact-form .form-note {
   font-size: 10px;
   margin: 12px 0 0;
-  color: #9fb2d0;
+  color: #e1b48f;
 }
 .booking-panel {
-  border-top: 1px solid #34445e;
+  border-top: 1px solid #47484b;
   margin-top: 35px;
   padding-top: 30px;
 }
@@ -1034,7 +1034,7 @@ details[open] summary svg {
 }
 .footer > span {
   font-size: 10px;
-  color: #8193af;
+  color: #e1b48f;
 }
 .footer > .text-link {
   font-size: 10px;
@@ -1053,13 +1053,13 @@ details[open] summary svg {
     grid-template-columns: repeat(2, 1fr);
   }
   .service:nth-child(3n) {
-    border-right: 1px solid #27344a;
+    border-right: 1px solid #37373a;
   }
   .service:nth-child(2n) {
     border-right: 0;
   }
   .service:nth-child(n + 4) {
-    border-bottom: 1px solid #27344a;
+    border-bottom: 1px solid #37373a;
   }
   .service:nth-child(n + 5) {
     border-bottom: 0;
@@ -1130,7 +1130,7 @@ details[open] summary svg {
   }
   .service:nth-child(n) {
     border-right: 0;
-    border-bottom: 1px solid #27344a;
+    border-bottom: 1px solid #37373a;
   }
   .service:last-child {
     border-bottom: 0;
@@ -1273,8 +1273,8 @@ details[open] summary svg {
   overflow: hidden;
   background:
     radial-gradient(ellipse at 17% 35%, rgba(151, 105, 65, 0.1), transparent 38%),
-    radial-gradient(ellipse at 76% 20%, rgba(35, 59, 94, 0.16), transparent 52%),
-    linear-gradient(125deg, #05080e 0%, #090e18 48%, #050910 100%);
+    radial-gradient(ellipse at 76% 20%, rgba(63, 63, 66, 0.16), transparent 52%),
+    linear-gradient(125deg, #09090a 0%, #101011 48%, #0a0a0b 100%);
 }
 #about::before {
   content: "";
@@ -1283,7 +1283,7 @@ details[open] summary svg {
   z-index: -1;
   pointer-events: none;
   opacity: 0.3;
-  background-image: radial-gradient(rgba(164, 178, 201, 0.15) 0.6px, transparent 0.6px);
+  background-image: radial-gradient(rgba(177, 179, 187, 0.15) 0.6px, transparent 0.6px);
   background-size: 6px 6px;
   mask-image: linear-gradient(120deg, #000, transparent 75%);
 }
@@ -1310,10 +1310,10 @@ details[open] summary svg {
 }
 #about .portrait-caption {
   padding: 32px 24px 16px;
-  background: linear-gradient(transparent, rgba(5, 8, 14, 0.65));
+  background: linear-gradient(transparent, rgba(9, 9, 10, 0.65));
 }
 #about .process {
-  border-top-color: rgba(164, 178, 201, 0.13);
+  border-top-color: rgba(177, 179, 187, 0.13);
 }
 @media (max-width: 680px) {
   #about .portrait-wrap {
@@ -1395,50 +1395,50 @@ details[open] summary svg {
 }
 /* Low-light surfaces with restrained depth; text contrast stays unchanged. */
 :root {
-  --background: #050810;
-  --card: #0b1321;
+  --background: #0a0a0b;
+  --card: #151617;
 }
 .hero {
   background:
-    radial-gradient(ellipse at 82% 40%, rgba(39, 65, 109, 0.18), transparent 52%),
+    radial-gradient(ellipse at 82% 40%, rgba(72, 73, 76, 0.18), transparent 52%),
     radial-gradient(ellipse at 12% 8%, rgba(130, 93, 60, 0.055), transparent 44%),
-    linear-gradient(145deg, #04060b, #090e19 65%, #050810);
+    linear-gradient(145deg, #070708, #101111 65%, #0a0a0b);
 }
 .site-header {
-  background: rgba(5, 8, 16, 0.95);
+  background: rgba(10, 10, 11, 0.95);
 }
 .tool-marquee {
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(39, 60, 94, 0.18), transparent 62%),
-    linear-gradient(120deg, #04070d, #080d17 52%, #05080e);
+    radial-gradient(ellipse at 50% 0%, rgba(65, 65, 68, 0.18), transparent 62%),
+    linear-gradient(120deg, #080809, #0f0f10 52%, #09090a);
 }
 .tool-logo {
   width: 28px;
   height: 28px;
   object-fit: contain;
   flex-shrink: 0;
-  color: #b5c6e5;
+  color: #e1b48f;
 }
 .work-section {
   background:
-    radial-gradient(ellipse at 95% 25%, rgba(31, 50, 77, 0.15), transparent 55%),
-    linear-gradient(150deg, #060b13, #090f1b 60%, #050911);
+    radial-gradient(ellipse at 95% 25%, rgba(52, 53, 55, 0.15), transparent 55%),
+    linear-gradient(150deg, #0c0c0d, #111212 60%, #0b0b0b);
 }
 #services {
   background:
-    radial-gradient(ellipse at 0% 50%, rgba(72, 87, 110, 0.07), transparent 60%),
-    linear-gradient(115deg, #050910, #080d16);
+    radial-gradient(ellipse at 0% 50%, rgba(88, 89, 93, 0.07), transparent 60%),
+    linear-gradient(115deg, #0a0a0b, #0f0f0f);
 }
 #about {
   background:
     radial-gradient(ellipse at 17% 38%, rgba(135, 91, 53, 0.105), transparent 37%),
-    radial-gradient(ellipse at 80% 25%, rgba(35, 56, 85, 0.12), transparent 52%),
-    linear-gradient(125deg, #030509, #070b12 48%, #04070d);
+    radial-gradient(ellipse at 80% 25%, rgba(58, 59, 61, 0.12), transparent 52%),
+    linear-gradient(125deg, #060606, #0c0c0d 48%, #080809);
 }
 .contact-section {
   background:
-    radial-gradient(ellipse at 15% 80%, rgba(30, 49, 80, 0.23), transparent 65%),
-    linear-gradient(125deg, #060a11, #0b1220);
+    radial-gradient(ellipse at 15% 80%, rgba(53, 54, 56, 0.23), transparent 65%),
+    linear-gradient(125deg, #0b0b0c, #151516);
 }
 /* Reference-inspired project presentation: charcoal, light edges, quiet warmth. */
 #projects {
@@ -1664,3 +1664,33 @@ details[open] summary svg {
   }
 }
 
+/* Native desktop cursors keep input and touch interactions familiar. */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor:
+      url("/cursors/arrow.svg") 3 2,
+      auto;
+  }
+  a,
+  button,
+  summary,
+  [role="button"],
+  .tool-card {
+    cursor:
+      url("/cursors/interactive.svg") 3 2,
+      pointer;
+  }
+  input,
+  textarea,
+  [contenteditable="true"] {
+    cursor: text;
+  }
+  button:disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+}
+::selection {
+  background: #e1b48f;
+  color: #141316;
+}
