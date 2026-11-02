@@ -78,19 +78,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Froilan Espiritu | AI Automation Specialist" },
+      { title: "The WorkFroi | AI Automation Specialist" },
       {
         name: "description",
         content:
           "AI automation for service businesses. Froilan Espiritu builds n8n and GoHighLevel workflows for lead handling, CRM updates, and faster follow-ups.",
       },
-      { property: "og:title", content: "Froilan Espiritu | AI Automation Specialist" },
+      { property: "og:title", content: "The WorkFroi | AI Automation Specialist" },
       {
         property: "og:description",
         content:
           "Workflow automation, AI integrations, and business process optimization — built to save your team time.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "The WorkFroi" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [

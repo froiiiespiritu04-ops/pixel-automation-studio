@@ -25,9 +25,16 @@ function Home() {
         <div className="container nav-row">
           <a className="brand" href="#top">
             <span className="brand-mark">
-              <Workflow size={21} />
+              <img
+                className="brand-logo"
+                src="/favicon.png"
+                alt=""
+                width={33}
+                height={33}
+                decoding="async"
+              />
             </span>
-            the tech froi<span className="brand-dot">.</span>
+            The WorkFroi
           </a>
           <nav aria-label="Main navigation">
             <a href="#services">Services</a>
@@ -517,7 +524,7 @@ function Footer() {
   return (
     <footer className="container footer">
       <a className="brand" href="#top">
-        <Workflow size={19} /> the tech froi<span className="brand-dot">.</span>
+        <Workflow size={19} /> The WorkFroi
       </a>
       <span>© {new Date().getFullYear()} Froilan Espiritu</span>
       <a href="#top" className="text-link">
