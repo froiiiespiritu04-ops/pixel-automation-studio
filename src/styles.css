@@ -160,6 +160,15 @@ svg {
   background: #313133;
   border: 1px solid #57585c;
   border-radius: 9px;
+  overflow: hidden;
+  flex: 0 0 auto;
+}
+.brand-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: inherit;
 }
 .nav-row nav {
   display: flex;
