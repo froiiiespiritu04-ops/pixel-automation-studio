@@ -6,12 +6,13 @@ import jobShot from "@/assets/job-application-ai.png";
 import ghlShot from "@/assets/ghl-n8n-leads.png";
 export const projects: Project[] = [
   {
-    title: "From new lead to the right next step",
-    category: "FEATURED BUILD / LEAD HANDLING",
+    title: "Turn Incoming Inquiries Into Organized Opportunities.",
+    category: "GOHIGHLEVEL + n8n CRM AUTOMATION",
     screenshot: ghlShot,
     tech: ["GoHighLevel", "n8n", "REST API", "Slack"],
     summary:
-      "A GoHighLevel + n8n working demo that cleans incoming lead data, updates CRM contacts, and flags priority inquiries for the team.",
+      "Instead of manually reviewing every new inquiry, this system automatically processes leads, updates GoHighLevel contact records, categorizes buyer inquiries, checks budget requirements, and notifies the team about priority opportunities.",
+    benefits: ["Less manual CRM management.", "Organized customer information.", "Faster lead categorization.", "Better visibility for your sales team."],
     outcome:
       "Less manual lead sorting. Clearer CRM records. Priority inquiries brought to the team’s attention.",
     problem:
@@ -25,7 +26,6 @@ export const projects: Project[] = [
       "Apply lead tags and check the budget threshold.",
       "Notify Slack and flag high-priority leads in GoHighLevel.",
     ],
-    source: "https://github.com/froiiiespiritu04-ops/ghl-n8n-lead-capture-automation",
   },
   {
     title: "Give Messenger inquiries a faster answer",
@@ -36,6 +36,7 @@ export const projects: Project[] = [
       "An AI Messenger workflow that uses a business FAQ knowledge base and conversation memory to answer common customer questions.",
     outcome:
       "Routine questions can get an answer while the team focuses on conversations that need personal attention.",
+    benefits: ["Answer common questions around the clock.", "Reduce repeated inbox work.", "Keep context across customer conversations.", "Give your team more time for personal attention."],
     problem:
       "Customers ask the same questions throughout the day and after hours. Answering each one manually slows down the inbox.",
     solution:
@@ -56,6 +57,7 @@ export const projects: Project[] = [
       "A workflow that takes an uploaded recording through transcription, blog and social copy generation, and platform-specific publishing.",
     outcome:
       "Fewer repeated steps between creating a recording and repurposing it for different channels.",
+    benefits: ["Reduce repeated content preparation.", "Reuse one recording across channels.", "Keep publishing steps connected."],
     problem:
       "Transcribing a recording and adapting it for each social platform means repeating similar work.",
     solution:
@@ -75,6 +77,7 @@ export const projects: Project[] = [
     summary:
       "A Make.com scenario that connects completed Asana tasks with Xero, logs records in Google Sheets, and attaches a summary back in Asana.",
     outcome: "Less copying between project, finance, and reporting tools.",
+    benefits: ["Reduce copying between tools.", "Keep finance and project records connected.", "Bring project summaries back to your team."],
     problem:
       "Completed work has to be copied into finance tools and spreadsheets before a project summary can be shared.",
     solution:
@@ -87,12 +90,13 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Bring a human review step to AI job applications",
-    category: "AI WORKFLOW DEMO",
+    title: "Turn a Repetitive Application Process Into an Organized Workflow.",
+    category: "AI JOB APPLICATION AUTOMATION",
     screenshot: jobShot,
     tech: ["n8n", "OpenRouter", "Slack", "Gmail"],
     summary:
-      "A Slack-triggered assistant that searches jobs, tailors a resume, saves it to Google Drive, and prepares a Gmail draft for review.",
+      "This system helps streamline job searching and application preparation by collecting opportunities, checking requirements, generating tailored resume content, and organizing application materials for human review.",
+    benefits: ["Reduce repetitive preparation.", "Organize opportunities.", "Prepare application materials faster.", "Keep human approval in the process."],
     outcome:
       "Application materials arrive together for review, with the final email left as a draft.",
     problem:
@@ -105,5 +109,18 @@ export const projects: Project[] = [
       "Find or create the resume file in Google Drive.",
       "Prepare a Gmail draft with the attachment and notify Slack.",
     ],
+  },
+  {
+    title: "Help Your Sales Team Focus on Serious Buyers.",
+    category: "REAL ESTATE LEAD QUALIFICATION / USE CASE",
+    screenshot: ghlShot,
+    tech: ["GoHighLevel", "n8n", "REST API", "Slack"],
+    summary: "Incoming real estate inquiries can quickly become difficult to manage. This automation evaluates new leads using their budget and requirements, categorizes their potential, and notifies the sales team when priority opportunities arrive.",
+    note: "A real estate use case of the same lead-handling demonstration shown above—not a separate client implementation.",
+    problem: "A busy inquiry inbox makes it difficult for agents to see which buyers need attention first.",
+    solution: "The existing lead-handling demo routes buyer inquiries using defined inquiry and budget rules, keeps contact records organized, and flags priority opportunities for the team. Qualification is rules-based.",
+    steps: ["Receive and clean the inquiry details.", "Categorize buyer inquiries using the defined criteria.", "Check the budget requirement and apply relevant contact tags.", "Notify the team about priority inquiries."],
+    outcome: "Less manual screening and clearer priorities for sales teams.",
+    benefits: ["Identify priority inquiries.", "Reduce manual lead screening.", "Organize leads automatically.", "Help sales teams focus on qualified prospects."],
   },
 ];

@@ -1,4 +1,5 @@
 import { ArrowUpRight, ZoomIn } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogTrigger,
@@ -17,6 +18,8 @@ export interface Project {
   outcome: string;
   category: string;
   source?: string;
+  benefits?: string[];
+  note?: string;
 }
 export function ProjectCard({
   project,
@@ -30,7 +33,7 @@ export function ProjectCard({
       <div className="project-image">
         <Dialog>
           <DialogTrigger asChild>
-            <button className="image-button" aria-label={`Enlarge ${project.title} workflow`}>
+            <Button variant="workflowImage" size="portfolio" aria-label={`Enlarge ${project.title} workflow`}>
               <img
                 src={project.screenshot}
                 alt={`${project.title}: original automation workflow`}
@@ -39,18 +42,16 @@ export function ProjectCard({
                 height={675}
               />
               <span className="zoom-label">
-                <ZoomIn size={14} /> View workflow
+                <ZoomIn size={14} /> View workflow screenshot
               </span>
-            </button>
+            </Button>
           </DialogTrigger>
           <DialogContent className="workflow-dialog">
             <DialogTitle>{project.title}</DialogTitle>
             <DialogDescription>
-              Original workflow screenshot. Open the full image for a closer look.
+              Original screenshot from a demonstration workflow.
             </DialogDescription>
-            <a href={project.screenshot} target="_blank" rel="noreferrer">
-              <img src={project.screenshot} alt={`${project.title} enlarged workflow`} />
-            </a>
+            <img src={project.screenshot} alt={`${project.title} enlarged workflow`} />
           </DialogContent>
         </Dialog>
       </div>
@@ -58,23 +59,19 @@ export function ProjectCard({
         <p className="eyebrow">{project.category}</p>
         <h3>{project.title}</h3>
         <p>{project.summary}</p>
-        <div className="tags">
-          {project.tech.map((t) => (
-            <span key={t}>{t}</span>
-          ))}
-        </div>
+        {project.note && <p className="project-note">{project.note}</p>}
         <div className="project-outcome">
-          <span>WHAT IT CHANGES</span>
-          <p>{project.outcome}</p>
+          <span>THE BUSINESS BENEFITS</span>
+          {project.benefits ? <ul className="benefit-list">{project.benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}</ul> : <p>{project.outcome}</p>}
         </div>
         <details>
           <summary>
-            Explore the workflow <ArrowUpRight size={16} />
+            Explore the solution <ArrowUpRight size={16} />
           </summary>
           <div className="case-study">
-            <h4>The problem</h4>
+            <h4>The business challenge</h4>
             <p>{project.problem}</p>
-            <h4>The approach</h4>
+            <h4>What I built</h4>
             <p>{project.solution}</p>
             <h4>How it works</h4>
             <ol>
@@ -82,11 +79,8 @@ export function ProjectCard({
                 <li key={s}>{s}</li>
               ))}
             </ol>
-            {project.source && (
-              <a className="text-link" href={project.source} target="_blank" rel="noreferrer">
-                View project on GitHub <ArrowUpRight size={15} />
-              </a>
-            )}
+            <h4>Tools and integrations</h4>
+            <div className="tags">{project.tech.map((tool) => <span key={tool}>{tool}</span>)}</div>
           </div>
         </details>
       </div>

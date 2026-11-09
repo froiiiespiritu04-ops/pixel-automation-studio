@@ -1703,3 +1703,63 @@ details[open] summary svg {
   background: #e1b48f;
   color: #141316;
 }
+
+/* Business-focused additions reuse the portfolio's existing theme roles. */
+.introduction-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: center;
+  gap: 64px;
+  padding-block: 58px;
+}
+.introduction-photo { text-align: center; min-width: 0; }
+.introduction-photo img { width: 100%; max-width: 350px; margin-inline: auto; aspect-ratio: 1; object-fit: contain; clip-path: circle(49.5%); }
+.intro-name { font-size: 22px; margin-top: 22px; font-weight: 550; }
+.intro-location { margin-top: 8px; font-size: 12px; }
+.professional-identity { line-height: 1.8; font-size: 11px; letter-spacing: 0; max-width: 480px; }
+.introduction-copy h1 { font-size: 52px; letter-spacing: 0; }
+.introduction-copy .hero-description { max-width: 590px; margin-block: 22px 14px; }
+.intro-description { font-size: 13px; line-height: 1.85; max-width: 570px; margin-bottom: 26px; }
+.business-heading { max-width: 850px; }
+.business-grid, .industry-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.industry-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.business-grid > div, .industry-grid > div { min-width: 0; }
+.business-card { height: 100%; padding: 30px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); display: flex; flex-direction: column; align-items: flex-start; }
+.business-card h3 { margin-block: 22px 12px; font-size: 20px; line-height: 1.4; letter-spacing: 0; }
+.business-card p { font-size: 13px; color: var(--muted-foreground); line-height: 1.85; }
+.business-card .solution-label { color: var(--primary); margin-bottom: 15px; }
+.benefit-list { padding: 0; margin: 12px 0 0; list-style: none; font-size: 13px; line-height: 1.8; color: var(--muted-foreground); }
+.benefit-list li { position: relative; padding-left: 18px; margin-bottom: 6px; }
+.benefit-list li::before { content: "✓"; position: absolute; left: 0; color: var(--primary); }
+.industry-grid .business-card { padding: 25px; }
+.business-card .industry-benefit { color: var(--foreground); margin-block: 18px; }
+.business-card .text-link { margin-top: auto; }
+.project-body .project-note { font-size: 11px; margin-top: 12px; }
+.process-standalone { margin-top: 35px; padding-inline: 0; }
+.contact-secondary { max-width: 360px; color: var(--muted-foreground); font-size: 12px; line-height: 1.8; margin-top: 16px; }
+.contact-actions { display: flex; gap: 12px; }
+.contact-actions .button { flex: 1; width: auto; }
+.button { background: var(--primary); color: var(--primary-foreground); border-color: var(--primary); }
+.button.secondary { background: transparent; color: var(--foreground); border-color: var(--input); }
+.button.secondary:hover { background: var(--accent); }
+.button-row .text-link { color: var(--primary); }
+.workflow-dialog img { max-height: 75dvh; }
+.reveal.in-view { animation: business-reveal 450ms ease-out both; }
+@keyframes business-reveal { from { opacity: 0.6; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 1000px) {
+  .introduction-grid { gap: 32px; }
+  .introduction-copy h1 { font-size: 42px; }
+  .industry-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 680px) {
+  .introduction-grid { grid-template-columns: 1fr; padding-block: 30px 42px; gap: 28px; }
+  .introduction-photo img { max-width: 180px; }
+  .intro-name { font-size: 20px; margin-top: 12px; }
+  .introduction-copy h1, .hero .introduction-copy h1 { font-size: 32px; letter-spacing: 0; }
+  .professional-identity { font-size: 10px; margin-bottom: 16px; }
+  .business-grid, .industry-grid { grid-template-columns: 1fr; gap: 18px; }
+  .business-card { padding: 25px; }
+  .contact-actions { flex-direction: column; }
+  .contact-actions .button { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { .reveal.in-view { animation: none; } }
