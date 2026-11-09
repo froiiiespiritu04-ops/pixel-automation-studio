@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import headshot from "@/assets/headshot.png";
 import { ProjectCard } from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
-import { ToolMarquee } from "@/components/ToolMarquee";
+import { Button } from "@/components/ui/button";
+import { BusinessProblems, IndustrySolutions, BusinessBenefits, WorkingProcess } from "@/components/BusinessSections";
 import { CalendlyInline } from "@/components/CalendlyInline";
 import { createFileRoute } from "@tanstack/react-router";
 import {
@@ -14,7 +15,17 @@ import {
   SlidersHorizontal,
   Bell,
 } from "lucide-react";
-export const Route = createFileRoute("/")({ component: Home });
+export const Route = createFileRoute("/")({
+  head: () => ({ meta: [
+    { title: "The WorkFroi | Business Automation with Froilan Espiritu" },
+    { name: "description", content: "Save time and simplify your operations with Froilan Espiritu. Business automation for lead management, customer communication, bookings, and organized CRMs." },
+    { property: "og:title", content: "The WorkFroi | Smarter Business Automation" },
+    { property: "og:description", content: "Less manual work. Faster growth. Smarter business. Practical automation solutions for service businesses, agencies, clinics, and salons." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary_large_image" },
+  ] }),
+  component: Home,
+});
 function Home() {
   return (
     <div id="top">
@@ -39,7 +50,7 @@ function Home() {
           <nav aria-label="Main navigation">
             <a href="#services">Services</a>
             <a href="#projects">Work</a>
-            <a href="#about">About</a>
+            <a href="#industries">Industries</a>
           </nav>
           <a className="button small" href="#contact">
             Let’s talk <ArrowUpRight size={16} />
@@ -48,11 +59,12 @@ function Home() {
       </header>
       <main id="main">
         <Hero />
-        <About />
-        <ToolMarquee />
+        <BusinessProblems />
         <Services />
         <Projects />
-        <Proof />
+        <IndustrySolutions />
+        <BusinessBenefits />
+        <WorkingProcess />
         <Contact />
       </main>
       <Footer />
@@ -61,147 +73,35 @@ function Home() {
 }
 function Hero() {
   return (
-    <section className="hero">
-      <div className="container hero-grid">
-        <div>
-          <p className="eyebrow">
-            <span className="status-dot" /> AI AUTOMATION SPECIALIST
-          </p>
-          <h1>
-            Less busywork.
-            <br />
-            Faster follow-ups.
-            <br />
-            <span>More room to grow.</span>
-          </h1>
-          <p className="hero-description">
-            I help service businesses capture leads, keep their CRM organized, and follow up faster
-            with n8n, GoHighLevel, and practical AI automation.
-          </p>
+    <section className="hero" id="about">
+      <div className="container introduction-grid">
+        <div className="introduction-photo">
+          <img src={headshot} alt="Froilan Espiritu, AI Automation Specialist" width={600} height={600} fetchPriority="high" />
+          <p className="intro-name">Hi, I’m Froilan Espiritu.</p>
+          <p className="muted intro-location">Philippines · Working remotely</p>
+        </div>
+        <div className="introduction-copy">
+          <p className="eyebrow professional-identity">AI Automation Specialist | Business Process Automation | GoHighLevel &amp; n8n</p>
+          <h1>Less Manual Work.<br />Faster Growth.<br /><span>Smarter Business.</span></h1>
+          <p className="hero-description">I help businesses automate lead management, customer communication, appointment bookings, and repetitive tasks so they can save time and focus on growing.</p>
+          <p className="muted intro-description">From missed inquiries to disorganized CRMs, I build practical automation systems that connect your tools, simplify operations, and help your business run more efficiently.</p>
           <div className="button-row">
-            <a className="button" href="#contact">
-              Let’s automate your workflow <ArrowUpRight size={18} />
-            </a>
-            <a className="text-link" href="#projects">
-              Explore my work <ArrowRight size={17} />
-            </a>
-          </div>
-          <div className="hero-signoff">
-            <img className="avatar-mini" src={headshot} alt="" width={34} height={34} />
-            <span>
-              Froilan Espiritu <span className="muted">/ Philippines · Working remotely</span>
-            </span>
+            <Button asChild variant="portfolio" size="portfolio"><a href="#contact">Let's Automate Your Business <ArrowUpRight size={18} /></a></Button>
+            <Button asChild variant="portfolioLink" size="portfolio"><a href="#solutions">See How I Help Businesses <ArrowRight size={17} /></a></Button>
           </div>
         </div>
-        <WorkflowVisual />
       </div>
     </section>
   );
 }
-function WorkflowVisual() {
-  return (
-    <div
-      className="workflow-visual"
-      aria-label="Illustrative lead workflow: capture an inquiry, qualify the lead, update the CRM, and notify your team"
-    >
-      <div className="workflow-heading">
-        <span>
-          <Workflow size={16} /> LEAD HANDLING WORKFLOW
-        </span>
-        <span className="workflow-label">EXAMPLE FLOW</span>
-      </div>
-      <div className="flow">
-        <div className="flow-node">
-          <span className="node-icon">
-            <MessageSquare />
-          </span>
-          <div>
-            <strong>New inquiry comes in</strong>
-            <small>Website form or Messenger</small>
-          </div>
-          <Check className="node-check" size={16} />
-        </div>
-        <span className="connector" />
-        <div className="flow-node featured-node">
-          <span className="node-icon">
-            <SlidersHorizontal />
-          </span>
-          <div>
-            <strong>Qualify & route the lead</strong>
-            <small>n8n · Your business rules</small>
-          </div>
-          <Check className="node-check" size={16} />
-        </div>
-        <div className="flow-branch">
-          <div>
-            <span className="connector" />
-            <div className="flow-node compact">
-              <Workflow size={20} />
-              <strong>Update CRM</strong>
-              <small>GoHighLevel</small>
-            </div>
-          </div>
-          <div>
-            <span className="connector" />
-            <div className="flow-node compact">
-              <Bell size={20} />
-              <strong>Notify your team</strong>
-              <small>Slack</small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="workflow-footer">
-        <span className="status-dot" /> A clear next step for every inquiry{" "}
-        <ArrowUpRight size={16} />
-      </div>
-    </div>
-  );
-}
 
 const services = [
-  {
-    icon: Workflow,
-    title: "Lead capture & CRM automation",
-    description:
-      "Bring form submissions and inquiries into GoHighLevel, clean up contact data, and keep tags and records consistent.",
-    outcome: "Give every lead a clear place to go.",
-  },
-  {
-    icon: SlidersHorizontal,
-    title: "AI lead qualification & follow-ups",
-    description:
-      "Use AI to interpret inquiries, organize key details, and prepare relevant responses, with your criteria and review steps guiding the workflow.",
-    outcome: "Spend less time sorting your inbox.",
-  },
-  {
-    icon: MessageSquare,
-    title: "Messenger & AI assistants",
-    description:
-      "Answer common questions using your business information and connect customer conversations to the next step in your process.",
-    outcome: "Help customers get answers sooner.",
-  },
-  {
-    icon: ArrowRight,
-    title: "APIs & connected operations",
-    description:
-      "Connect tools that don’t talk to each other. Move the right data between your forms, CRM, spreadsheets, and team notifications.",
-    outcome: "Stop entering the same information twice.",
-  },
-  {
-    icon: Bell,
-    title: "n8n error monitoring & repairs",
-    description:
-      "Find fragile steps, add failure notifications, and make errors easier to investigate so issues don’t stay hidden in the background.",
-    outcome: "Know when a workflow needs attention.",
-  },
-  {
-    icon: Check,
-    title: "Workflow design & handover",
-    description:
-      "Turn a manual process into a practical workflow, test the important paths, and explain how to use and maintain it.",
-    outcome: "Understand the system you’re relying on.",
-  },
+  { icon: MessageSquare, title: "AI Chat & Booking Assistants", description: "Help customers get answers and reach the right booking step without leaving your team to handle every routine inquiry.", outcome: "Faster answers. Easier appointment inquiries." },
+  { icon: Bell, title: "Lead Capture & Follow-Up Automation", description: "Capture inquiries, organize new leads, and connect follow-up steps so promising opportunities don't get lost in a busy inbox.", outcome: "Keep the next step clear for every lead." },
+  { icon: SlidersHorizontal, title: "GoHighLevel CRM Setup & Automation", description: "Bring scattered customer information into an organized CRM, with consistent records, tags, and inquiry routing.", outcome: "Less manual CRM management." },
+  { icon: Workflow, title: "n8n Workflow Automation", description: "Turn repeated tasks into connected workflows, with checks and notifications that make exceptions easier to handle.", outcome: "Spend less time repeating the same steps." },
+  { icon: ArrowRight, title: "API & Webhook Integrations", description: "Connect business tools so the right information moves between your forms, CRM, spreadsheets, and team.", outcome: "Stop entering the same information twice." },
+  { icon: Check, title: "Business Process Automation", description: "Simplify administrative work and handoffs with a process built around how your business actually runs.", outcome: "Give your team more time for important work." },
 ];
 function Services() {
   return (
@@ -209,11 +109,9 @@ function Services() {
       <div className="container">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">01 / HOW I CAN HELP</p>
+            <p className="eyebrow">02 / SERVICES</p>
             <h2>
-              Keep your business moving.
-              <br />
-              <span className="muted">Cut the repetitive work.</span>
+              Here's What I Can Automate for You.
             </h2>
           </div>
           <p>
@@ -246,125 +144,26 @@ function Projects() {
       <div className="container">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">02 / SELECTED WORK</p>
+            <p className="eyebrow">03 / AUTOMATION CASE STUDIES</p>
             <h2>
-              See the systems
-              <br />
-              behind the service.
+              Business Challenges.<br />Practical Solutions.
             </h2>
           </div>
           <p>
-            Explore the actual workflows, the problems they address, and how the pieces connect.
+            Demonstration projects showing what I can build—not client engagements or measured performance claims.
           </p>
         </div>
+        {projects.slice(5).map(project => <ProjectCard key={project.title} project={project} featured />)}
         <ProjectCard project={projects[0]} featured />
-        <ProjectCard project={projects[1]} featured />
+        <ProjectCard project={projects[4]} featured />
         <div className="additional-work" id="gallery">
-          <h3>More ways I connect the dots</h3>
-          <p className="muted">Content, operations, and AI workflow projects.</p>
+          <h3>More Business Processes, Connected</h3>
+          <p className="muted">Customer communication, content, and connected operations.</p>
           <div className="project-grid">
-            {projects.slice(2).map((p) => (
+            {projects.slice(1, 4).map((p) => (
               <ProjectCard key={p.title} project={p} />
             ))}
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-function Proof() {
-  return (
-    <section className="section proof-section">
-      <div className="container">
-        <p className="eyebrow">PRACTICAL WORK. VISIBLE DETAILS.</p>
-        <div className="proof-grid">
-          <h2>
-            Look inside
-            <br />
-            the workflow.
-          </h2>
-          <div>
-            <span className="proof-number">01</span>
-            <h3>Original workflow screenshots</h3>
-            <p>
-              Inspect the actual builds. Each project includes its approach and the steps that
-              connect the tools.
-            </p>
-          </div>
-          <div>
-            <span className="proof-number">02</span>
-            <h3>A working GoHighLevel demo</h3>
-            <p>
-              Trace a lead from the incoming webhook to CRM updates, tags, and team notifications.
-              Explore the project repository for a closer look.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-function About() {
-  return (
-    <section className="section" id="about">
-      <div className="container about-grid">
-        <div className="portrait-wrap">
-          <img
-            src={headshot}
-            alt="Froilan Espiritu, AI Automation Specialist"
-            width={600}
-            height={600}
-            loading="lazy"
-          />
-          <div className="portrait-caption">
-            <strong>Froilan Espiritu</strong>
-            <span>Philippines · Working remotely</span>
-          </div>
-        </div>
-        <div>
-          <p className="eyebrow">03 / THE PERSON BEHIND THE WORKFLOWS</p>
-          <h2>
-            Hi, I’m Froilan.
-            <br />
-            <span className="muted">
-              I make your tools
-              <br />
-              work together.
-            </span>
-          </h2>
-          <p className="about-intro">
-            I build automation systems that help businesses respond to leads faster, reduce
-            repetitive work, and keep their CRM and operations organized.
-          </p>
-          <p className="muted about-copy">
-            My focus is n8n, GoHighLevel, APIs, webhooks, and AI integrations. I enjoy taking a
-            process that feels messy or manual and turning it into a system that’s easier to run and
-            understand.
-          </p>
-          <p className="muted about-copy">
-            I start with how your business works: where inquiries arrive, what your team does next,
-            and which steps keep getting repeated. That’s where we find the right place to automate.
-          </p>
-          <a className="text-link" href="#contact">
-            Tell me about your workflow <ArrowUpRight size={17} />
-          </a>
-        </div>
-      </div>
-      <div className="container process">
-        <div>
-          <span>01 / UNDERSTAND</span>
-          <h3>Map the process</h3>
-          <p>Walk through your tools, bottlenecks, and the outcome you need.</p>
-        </div>
-        <div>
-          <span>02 / BUILD & TEST</span>
-          <h3>Connect the steps</h3>
-          <p>Build the workflow and check both the normal path and likely exceptions.</p>
-        </div>
-        <div>
-          <span>03 / HAND OVER</span>
-          <h3>Make it usable</h3>
-          <p>Explain how it works, what to watch, and how to manage it day to day.</p>
         </div>
       </div>
     </section>
@@ -389,29 +188,16 @@ function Contact() {
       <div className="container contact-grid">
         <div>
           <p className="eyebrow">
-            <span className="status-dot" /> LET’S TALK AUTOMATION
+            <span className="status-dot" /> 07 / LET’S WORK TOGETHER
           </p>
           <h2>
-            What’s taking up
-            <br />
-            too much of
-            <br />
-            <span>your team’s time?</span>
+            How Much Time Is Your Business Losing to <span>Manual Work?</span>
           </h2>
           <p className="contact-intro">
-            Tell me what happens today and what you’d like to work better. We’ll start with a
-            practical conversation about the next step.
+            Let's identify the repetitive tasks slowing down your business and find opportunities to automate them. You don't need more complicated software. You need systems that work together.
           </p>
-          <button
-            className="button"
-            type="button"
-            aria-expanded={showCal}
-            aria-controls="booking"
-            onClick={() => setShowCal(!showCal)}
-          >
-            {showCal ? "Hide booking calendar" : "Book a discovery call"}
-            <ArrowUpRight size={17} />
-          </button>
+          <Button asChild variant="portfolio" size="portfolio"><a href="#name">Let's Discuss Your Business <ArrowUpRight size={17} /></a></Button>
+          <p className="contact-secondary">Tell me what's taking up your time. I'll help you identify what can be automated.</p>
           <a className="contact-email" href={`mailto:${email}`}>
             {email}
             <ArrowUpRight size={16} />
@@ -439,7 +225,7 @@ function Contact() {
             setPrepared(true);
           }}
         >
-          <h3>Tell me what you’d like to automate</h3>
+          <h3>Let’s Discuss Your Business</h3>
           <p>Share the process, the tools you use, and where things slow down.</p>
           <div className="form-row">
             <div>
@@ -487,9 +273,10 @@ function Contact() {
             onChange={(e) => setForm({ ...form, message: e.target.value })}
             placeholder="Our leads arrive through… Then we manually…"
           />
-          <button className="button" type="submit">
-            Prepare email <ArrowUpRight size={16} />
-          </button>
+          <div className="contact-actions">
+            <Button variant="portfolio" size="portfolio" type="submit">Prepare email <ArrowUpRight size={16} /></Button>
+            <Button variant="portfolioOutline" size="portfolio" type="button" aria-expanded={showCal} aria-controls="booking" onClick={() => setShowCal(!showCal)}>{showCal ? "Hide booking calendar" : "Book a discovery call"}<ArrowUpRight size={16} /></Button>
+          </div>
           <p className="form-note" role="status">
             {prepared
               ? "Your email draft is ready to open in your email app. Review and send it there. If nothing opened, email me directly using the address beside this form."
