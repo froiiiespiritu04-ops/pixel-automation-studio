@@ -3,7 +3,7 @@ import headshot from "@/assets/headshot.png";
 import { ProjectCard } from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
 import { Button } from "@/components/ui/button";
-import { BusinessProblems, CaseStudyIndex, BusinessBenefits, WorkingProcess } from "@/components/BusinessSections";
+import { BusinessProblems, BusinessBenefits, WorkingProcess } from "@/components/BusinessSections";
 import { CalendlyInline } from "@/components/CalendlyInline";
 import { createFileRoute } from "@tanstack/react-router";
 import {
@@ -50,7 +50,6 @@ function Home() {
           <nav aria-label="Main navigation">
             <a href="#services">Services</a>
             <a href="#projects">Work</a>
-            <a href="#case-studies">Case Studies</a>
           </nav>
           <a className="button small" href="#contact">
             Let’s talk <ArrowUpRight size={16} />
@@ -62,7 +61,6 @@ function Home() {
         <BusinessProblems />
         <Services />
         <Projects />
-        <CaseStudyIndex />
         <BusinessBenefits />
         <WorkingProcess />
         <Contact />
@@ -188,7 +186,7 @@ function Contact() {
       <div className="container contact-grid">
         <div>
           <p className="eyebrow">
-            <span className="status-dot" /> 07 / LET’S WORK TOGETHER
+            <span className="status-dot" /> 06 / LET’S WORK TOGETHER
           </p>
           <h2>
             How Much Time Is Your Business Losing to <span>Manual Work?</span>

@@ -1,7 +1,5 @@
-import { ArrowUpRight, CalendarCheck, Clock3, MessageSquare, Settings2, Users, Workflow } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { CalendarCheck, Clock3, MessageSquare, Settings2, Users, Workflow } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { projects } from "@/data/projects";
 
 const problems = [
   { icon: Users, title: "You're Losing Potential Customers", solution: "Lead Capture & Follow-Up Automation", benefits: ["Capture incoming inquiries.", "Organize and categorize new leads.", "Send faster responses.", "Notify your team about important opportunities."] },
@@ -15,12 +13,6 @@ export function BusinessProblems() {
     <div className="business-grid">{problems.map(({ icon: Icon, ...problem }) => <Reveal key={problem.title}><article className="business-card"><Icon className="text-primary" size={24} /><h3>{problem.title}</h3><p className="solution-label">{problem.solution}</p><ul className="benefit-list">{problem.benefits.map(benefit => <li key={benefit}>{benefit}</li>)}</ul></article></Reveal>)}</div>
   </div></section>;
 }
-export function CaseStudyIndex() {
-  return <section className="section" id="case-studies"><div className="container">
-    <div className="section-heading"><div><p className="eyebrow">04 / CASE STUDIES</p><h2>Automation I've<br />Actually Built.</h2></div><p>Real demonstration workflows from my portfolio—open the full case studies in the Work section.</p></div>
-    <div className="industry-grid">{projects.map((project) => <Reveal key={project.title}><article className="business-card"><p className="eyebrow">{project.category}</p><h3>{project.title}</h3><p>{project.summary}</p><Button asChild variant="portfolioLink" size="portfolio"><a href="#projects">View case study <ArrowUpRight size={16} /></a></Button></article></Reveal>)}</div>
-  </div></section>;
-}
 const results = [
   { icon: Clock3, title: "More Time for Growth", description: "Spend less time on repetitive tasks and more time serving customers and growing your business." },
   { icon: Users, title: "Faster Lead Response", description: "Organize inquiries and automate follow-ups so potential customers don't get overlooked." },
@@ -28,10 +20,10 @@ const results = [
   { icon: CalendarCheck, title: "Better Customer Experience", description: "Give customers faster answers, clearer communication, and easier access to your services." },
 ];
 export function BusinessBenefits() {
-  return <section className="section" id="benefits"><div className="container"><div className="section-heading"><div><p className="eyebrow">05 / BUSINESS BENEFITS</p><h2 className="business-heading">What Changes When Your Business Starts Working Smarter?</h2></div></div><div className="industry-grid">{results.map(({ icon: Icon, ...result }) => <Reveal key={result.title}><article className="business-card"><Icon className="text-primary" size={24} /><h3>{result.title}</h3><p>{result.description}</p></article></Reveal>)}</div></div></section>;
+  return <section className="section" id="benefits"><div className="container"><div className="section-heading"><div><p className="eyebrow">04 / BUSINESS BENEFITS</p><h2 className="business-heading">What Changes When Your Business Starts Working Smarter?</h2></div></div><div className="industry-grid">{results.map(({ icon: Icon, ...result }) => <Reveal key={result.title}><article className="business-card"><Icon className="text-primary" size={24} /><h3>{result.title}</h3><p>{result.description}</p></article></Reveal>)}</div></div></section>;
 }
 export function WorkingProcess() {
-  return <section className="section" id="process"><div className="container"><p className="eyebrow">06 / MY WORKING PROCESS</p><h2>Understand the Business.<br /><span className="muted">Then Connect the Right Steps.</span></h2><div className="process process-standalone">
+  return <section className="section" id="process"><div className="container"><p className="eyebrow">05 / MY WORKING PROCESS</p><h2>Understand the Business.<br /><span className="muted">Then Connect the Right Steps.</span></h2><div className="process process-standalone">
     <div><span>01 / UNDERSTAND</span><h3>Map the process</h3><p>Walk through your tools, bottlenecks, and the outcome you need.</p></div>
     <div><span>02 / BUILD & TEST</span><h3>Connect the steps</h3><p>Build the workflow and check both the normal path and likely exceptions.</p></div>
     <div><span>03 / HAND OVER</span><h3>Make it usable</h3><p>Explain how it works, what to watch, and how to manage it day to day.</p></div>
