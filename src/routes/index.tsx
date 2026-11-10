@@ -59,9 +59,9 @@ function Home() {
       </header>
       <main id="main">
         <Hero />
-        <ToolMarquee />
         <BusinessProblems />
         <Services />
+        <ToolMarquee />
         <Projects />
         <BusinessBenefits />
         <WorkingProcess />
