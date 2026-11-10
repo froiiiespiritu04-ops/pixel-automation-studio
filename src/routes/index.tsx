@@ -3,7 +3,7 @@ import headshot from "@/assets/headshot.png";
 import { ProjectCard } from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
 import { Button } from "@/components/ui/button";
-import { BusinessProblems, IndustrySolutions, BusinessBenefits, WorkingProcess } from "@/components/BusinessSections";
+import { BusinessProblems, CaseStudyIndex, BusinessBenefits, WorkingProcess } from "@/components/BusinessSections";
 import { CalendlyInline } from "@/components/CalendlyInline";
 import { createFileRoute } from "@tanstack/react-router";
 import {
@@ -50,7 +50,7 @@ function Home() {
           <nav aria-label="Main navigation">
             <a href="#services">Services</a>
             <a href="#projects">Work</a>
-            <a href="#industries">Industries</a>
+            <a href="#case-studies">Case Studies</a>
           </nav>
           <a className="button small" href="#contact">
             Let’s talk <ArrowUpRight size={16} />
@@ -62,7 +62,7 @@ function Home() {
         <BusinessProblems />
         <Services />
         <Projects />
-        <IndustrySolutions />
+        <CaseStudyIndex />
         <BusinessBenefits />
         <WorkingProcess />
         <Contact />
