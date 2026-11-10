@@ -5,6 +5,7 @@ import { projects } from "@/data/projects";
 import { Button } from "@/components/ui/button";
 import { BusinessProblems, BusinessBenefits, WorkingProcess } from "@/components/BusinessSections";
 import { CalendlyInline } from "@/components/CalendlyInline";
+import { ToolMarquee } from "@/components/ToolMarquee";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowUpRight,
@@ -58,6 +59,7 @@ function Home() {
       </header>
       <main id="main">
         <Hero />
+        <ToolMarquee />
         <BusinessProblems />
         <Services />
         <Projects />
