@@ -1,6 +1,7 @@
-import { ArrowUpRight, BriefcaseBusiness, CalendarCheck, Clock3, HeartHandshake, House, MessageSquare, Settings2, Sparkles, Users, Workflow } from "lucide-react";
+import { ArrowUpRight, CalendarCheck, Clock3, MessageSquare, Settings2, Users, Workflow } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/Reveal";
+import { projects } from "@/data/projects";
 
 const problems = [
   { icon: Users, title: "You're Losing Potential Customers", solution: "Lead Capture & Follow-Up Automation", benefits: ["Capture incoming inquiries.", "Organize and categorize new leads.", "Send faster responses.", "Notify your team about important opportunities."] },
@@ -14,16 +15,10 @@ export function BusinessProblems() {
     <div className="business-grid">{problems.map(({ icon: Icon, ...problem }) => <Reveal key={problem.title}><article className="business-card"><Icon className="text-primary" size={24} /><h3>{problem.title}</h3><p className="solution-label">{problem.solution}</p><ul className="benefit-list">{problem.benefits.map(benefit => <li key={benefit}>{benefit}</li>)}</ul></article></Reveal>)}</div>
   </div></section>;
 }
-const industries = [
-  { icon: House, title: "Real Estate", description: "Organize incoming inquiries, qualify potential buyers, and notify your agents about important opportunities.", benefit: "Give agents clearer priorities." },
-  { icon: HeartHandshake, title: "Dental Clinics", description: "Automate appointment inquiries, booking confirmations, reminders, and patient communication.", benefit: "Keep patients informed and appointments organized." },
-  { icon: Sparkles, title: "Beauty Salons", description: "Make appointment booking easier, automate confirmations, and keep customers informed.", benefit: "Spend more time with customers, less time managing bookings." },
-  { icon: BriefcaseBusiness, title: "Marketing Agencies", description: "Automate lead management, client onboarding, reporting, and repetitive administrative processes.", benefit: "Give your team more room for client work." },
-];
-export function IndustrySolutions() {
-  return <section className="section" id="industries"><div className="container">
-    <div className="section-heading"><div><p className="eyebrow">04 / INDUSTRIES I CAN HELP</p><h2>Automation That Works<br />Around Your Business.</h2></div><p>Solutions shaped around your business—not claims of existing client implementations.</p></div>
-    <div className="industry-grid">{industries.map(({ icon: Icon, ...industry }) => <Reveal key={industry.title}><article className="business-card"><Icon className="text-primary" size={24} /><h3>{industry.title}</h3><p>{industry.description}</p><p className="industry-benefit">{industry.benefit}</p><Button asChild variant="portfolioLink" size="portfolio"><a href="#contact">Explore Solutions <ArrowUpRight size={16} /></a></Button></article></Reveal>)}</div>
+export function CaseStudyIndex() {
+  return <section className="section" id="case-studies"><div className="container">
+    <div className="section-heading"><div><p className="eyebrow">04 / CASE STUDIES</p><h2>Automation I've<br />Actually Built.</h2></div><p>Real demonstration workflows from my portfolio—open the full case studies in the Work section.</p></div>
+    <div className="industry-grid">{projects.map((project) => <Reveal key={project.title}><article className="business-card"><p className="eyebrow">{project.category}</p><h3>{project.title}</h3><p>{project.summary}</p><Button asChild variant="portfolioLink" size="portfolio"><a href="#projects">View case study <ArrowUpRight size={16} /></a></Button></article></Reveal>)}</div>
   </div></section>;
 }
 const results = [
