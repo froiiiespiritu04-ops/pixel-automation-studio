@@ -1484,11 +1484,11 @@ details[open] summary svg {
   line-height: 1.9;
 }
 #projects .project-card {
-  border: 1px solid rgba(216, 214, 211, 0.25);
+  border: 1px solid var(--card-edge);
   border-radius: 20px;
   background: linear-gradient(150deg, #232428, #18191d 48%, #14161a);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    var(--card-halo),
     0 16px 42px rgba(0, 0, 0, 0.2);
   transition:
     border-color 0.25s ease,
@@ -1496,11 +1496,13 @@ details[open] summary svg {
 }
 #projects .project-card:hover,
 #projects .project-card:focus-within {
-  border-color: rgba(222, 204, 183, 0.48);
+  border-color: rgba(var(--card-glow), 0.42);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 18px 48px rgba(0, 0, 0, 0.28),
-    0 0 28px rgba(193, 144, 97, 0.045);
+    inset 0 1px 0 rgba(var(--card-glow), 0.09),
+    0 0 0 1px rgba(var(--card-glow), 0.09),
+    0 0 26px -2px rgba(var(--card-glow), 0.26),
+    0 0 58px -8px rgba(var(--card-glow), 0.18),
+    0 18px 48px rgba(0, 0, 0, 0.28);
 }
 #projects .project-featured {
   margin-bottom: 32px;
