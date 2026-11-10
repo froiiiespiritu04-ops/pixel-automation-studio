@@ -1406,6 +1406,9 @@ details[open] summary svg {
 :root {
   --background: #0a0a0b;
   --card: #151617;
+  /* Neutral silver-gray card edge + diffused halo; no blue or colored neon. */
+  --card-edge: #5e6066;
+  --card-glow: 200, 200, 202;
 }
 .hero {
   background:
@@ -1724,7 +1727,7 @@ details[open] summary svg {
 .business-grid, .industry-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .industry-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .business-grid > div, .industry-grid > div { min-width: 0; }
-.business-card { height: 100%; padding: 30px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); display: flex; flex-direction: column; align-items: flex-start; }
+.business-card { height: 100%; padding: 30px; border: 1px solid var(--card-edge); border-radius: 8px; background: var(--card); display: flex; flex-direction: column; align-items: flex-start; box-shadow: inset 0 1px 0 rgba(var(--card-glow), 0.06), 0 0 0 1px rgba(var(--card-glow), 0.07), 0 0 22px -2px rgba(var(--card-glow), 0.22), 0 0 55px -8px rgba(var(--card-glow), 0.15); }
 .business-card h3 { margin-block: 22px 12px; font-size: 20px; line-height: 1.4; letter-spacing: 0; }
 .business-card p { font-size: 13px; color: var(--muted-foreground); line-height: 1.85; }
 .business-card .solution-label { color: var(--primary); margin-bottom: 15px; }
