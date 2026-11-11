@@ -20,6 +20,7 @@ export interface Project {
   source?: string;
   benefits?: string[];
   note?: string;
+  videoUrl?: string;
 }
 export function ProjectCard({
   project,
@@ -84,6 +85,47 @@ export function ProjectCard({
           </div>
         </details>
       </div>
+      {project.videoUrl && <ProjectDemo project={project} />}
     </article>
+  );
+}
+
+function youtubeEmbedUrl(url: string) {
+  try {
+    const parsed = new URL(url);
+    const host = parsed.hostname.replace(/^www\./, "");
+    const id =
+      host === "youtu.be"
+        ? parsed.pathname.slice(1)
+        : host === "youtube.com" || host === "youtube-nocookie.com"
+          ? parsed.pathname === "/watch"
+            ? (parsed.searchParams.get("v") ?? "")
+            : (parsed.pathname.split("/").filter(Boolean)[1] ?? "")
+          : "";
+    if (!/^[A-Za-z0-9_-]{6,}$/.test(id)) return null;
+    return `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1`;
+  } catch {
+    return null;
+  }
+}
+
+function ProjectDemo({ project }: { project: Project }) {
+  const embed = youtubeEmbedUrl(project.videoUrl ?? "");
+  if (!embed) return null;
+  return (
+    <div className="project-demo">
+      <h4 className="demo-title">Watch the Project Demo</h4>
+      <p className="demo-note">Plays right here — no need to leave the page.</p>
+      <div className="video-frame">
+        <iframe
+          src={embed}
+          title={`${project.title} demo video`}
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          referrerPolicy="strict-origin-when-cross-origin"
+        />
+      </div>
+    </div>
   );
 }

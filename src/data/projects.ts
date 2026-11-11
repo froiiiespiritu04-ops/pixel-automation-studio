@@ -128,6 +128,7 @@ export const projects: Project[] = [
     title: "The Nail Vault – Complete Booking & Client Follow-Up Automation System",
     category: "GOHIGHLEVEL BOOKING & FOLLOW-UP AUTOMATION",
     screenshot: nailVaultShot,
+    videoUrl: "https://youtu.be/8MTVTsFEKa4",
     tech: ["GoHighLevel", "Funnel Builder", "Calendar", "Workflows", "CRM", "HTML Email"],
     summary:
       "A complete GoHighLevel booking and automation system designed for a luxury nail salon to simplify appointment management and improve the customer experience — from online booking to confirmations, reminders, and organized pipeline tracking.",
