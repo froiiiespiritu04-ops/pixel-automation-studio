@@ -1,4 +1,5 @@
-import { ArrowUpRight, ZoomIn } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowUpRight, Play, X, ZoomIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -21,6 +22,7 @@ export interface Project {
   benefits?: string[];
   note?: string;
   videoUrl?: string;
+  videoPoster?: string;
 }
 export function ProjectCard({
   project,
@@ -90,7 +92,7 @@ export function ProjectCard({
   );
 }
 
-function youtubeEmbedUrl(url: string) {
+function youtubeVideoId(url: string) {
   try {
     const parsed = new URL(url);
     const host = parsed.hostname.replace(/^www\./, "");
@@ -102,30 +104,85 @@ function youtubeEmbedUrl(url: string) {
             ? (parsed.searchParams.get("v") ?? "")
             : (parsed.pathname.split("/").filter(Boolean)[1] ?? "")
           : "";
-    if (!/^[A-Za-z0-9_-]{6,}$/.test(id)) return null;
-    return `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1`;
+    return /^[A-Za-z0-9_-]{6,}$/.test(id) ? id : "";
   } catch {
-    return null;
+    return "";
   }
 }
 
 function ProjectDemo({ project }: { project: Project }) {
-  const embed = youtubeEmbedUrl(project.videoUrl ?? "");
-  if (!embed) return null;
+  const id = youtubeVideoId(project.videoUrl ?? "");
+  const [open, setOpen] = useState(false);
+  const previewRef = useRef<HTMLButtonElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const wasOpened = useRef(false);
+
+  useEffect(() => {
+    if (open) {
+      wasOpened.current = true;
+      closeRef.current?.focus();
+      const onKeyDown = (event: KeyboardEvent) => {
+        if (event.key === "Escape") setOpen(false);
+      };
+      window.addEventListener("keydown", onKeyDown);
+      return () => window.removeEventListener("keydown", onKeyDown);
+    }
+    if (wasOpened.current) previewRef.current?.focus();
+  }, [open]);
+
+  if (!id) return null;
+  const poster =
+    project.videoPoster ?? `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
+
   return (
     <div className="project-demo">
       <h4 className="demo-title">Watch the Project Demo</h4>
-      <p className="demo-note">Plays right here — no need to leave the page.</p>
-      <div className="video-frame">
-        <iframe
-          src={embed}
-          title={`${project.title} demo video`}
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          referrerPolicy="strict-origin-when-cross-origin"
-        />
-      </div>
+      <p className="demo-note">
+        {open
+          ? "Playing right here. Close it with the X to go back to the preview."
+          : "Press play to watch it right here — no need to leave the page."}
+      </p>
+      {open ? (
+        <div className="video-frame video-reveal">
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1&autoplay=1`}
+            title={`${project.title} demo video`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            referrerPolicy="strict-origin-when-cross-origin"
+          />
+          <button
+            type="button"
+            className="video-close"
+            onClick={() => setOpen(false)}
+            aria-label="Close the project demo video"
+            ref={closeRef}
+          >
+            <X size={16} />
+          </button>
+        </div>
+      ) : (
+        <button
+          type="button"
+          className="video-preview"
+          onClick={() => setOpen(true)}
+          aria-label={`Play the ${project.title} demo video`}
+          ref={previewRef}
+        >
+          <img
+            src={poster}
+            alt={`${project.title} demo video preview`}
+            width={1280}
+            height={720}
+            loading="lazy"
+          />
+          <span className="video-preview-shade" aria-hidden="true" />
+          <span className="video-play" aria-hidden="true">
+            <Play size={20} fill="currentColor" />
+          </span>
+          <span className="video-preview-label">Play demo</span>
+        </button>
+      )}
     </div>
   );
 }
