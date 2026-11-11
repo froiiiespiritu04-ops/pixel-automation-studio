@@ -5,6 +5,7 @@ import fbShot from "@/assets/facebook-ai-agent.png";
 import jobShot from "@/assets/job-application-ai.png";
 import ghlShot from "@/assets/ghl-n8n-leads.png";
 import nailVaultShot from "@/assets/nail-vault-ghl.png";
+import nailVaultPoster from "@/assets/nail-vault-demo-poster.jpg";
 export const projects: Project[] = [
   {
     title: "Turn Incoming Inquiries Into Organized Opportunities.",
@@ -129,6 +130,7 @@ export const projects: Project[] = [
     category: "GOHIGHLEVEL BOOKING & FOLLOW-UP AUTOMATION",
     screenshot: nailVaultShot,
     videoUrl: "https://youtu.be/8MTVTsFEKa4",
+    videoPoster: nailVaultPoster,
     tech: ["GoHighLevel", "Funnel Builder", "Calendar", "Workflows", "CRM", "HTML Email"],
     summary:
       "A complete GoHighLevel booking and automation system designed for a luxury nail salon to simplify appointment management and improve the customer experience — from online booking to confirmations, reminders, and organized pipeline tracking.",
