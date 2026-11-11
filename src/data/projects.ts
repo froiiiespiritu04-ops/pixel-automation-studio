@@ -4,6 +4,7 @@ import makeShot from "@/assets/make-asana-xero.png";
 import fbShot from "@/assets/facebook-ai-agent.png";
 import jobShot from "@/assets/job-application-ai.png";
 import ghlShot from "@/assets/ghl-n8n-leads.png";
+import nailVaultShot from "@/assets/nail-vault-ghl.png";
 export const projects: Project[] = [
   {
     title: "Turn Incoming Inquiries Into Organized Opportunities.",
