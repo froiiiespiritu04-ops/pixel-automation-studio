@@ -4,6 +4,7 @@ import makeShot from "@/assets/make-asana-xero.png";
 import fbShot from "@/assets/facebook-ai-agent.png";
 import jobShot from "@/assets/job-application-ai.png";
 import ghlShot from "@/assets/ghl-n8n-leads.png";
+import nailVaultShot from "@/assets/nail-vault-ghl.png";
 export const projects: Project[] = [
   {
     title: "Turn Incoming Inquiries Into Organized Opportunities.",
@@ -122,5 +123,33 @@ export const projects: Project[] = [
     steps: ["Receive and clean the inquiry details.", "Categorize buyer inquiries using the defined criteria.", "Check the budget requirement and apply relevant contact tags.", "Notify the team about priority inquiries."],
     outcome: "Less manual screening and clearer priorities for sales teams.",
     benefits: ["Identify priority inquiries.", "Reduce manual lead screening.", "Organize leads automatically.", "Help sales teams focus on qualified prospects."],
+  },
+  {
+    title: "The Nail Vault – Complete Booking & Client Follow-Up Automation System",
+    category: "GOHIGHLEVEL BOOKING & FOLLOW-UP AUTOMATION",
+    screenshot: nailVaultShot,
+    tech: ["GoHighLevel", "Funnel Builder", "Calendar", "Workflows", "CRM", "HTML Email"],
+    summary:
+      "A complete GoHighLevel booking and automation system designed for a luxury nail salon to simplify appointment management and improve the customer experience — from online booking to confirmations, reminders, and organized pipeline tracking.",
+    benefits: [
+      "Less manual administrative work.",
+      "Fewer missed appointments.",
+      "Better customer experience.",
+      "Organized appointment tracking.",
+      "Faster customer communication.",
+    ],
+    outcome:
+      "Fewer no-shows, a smoother client experience, and a more organized booking process.",
+    problem:
+      "A busy nail salon handles bookings, confirmations, and reminders by hand. Appointments get missed, follow-ups slip, and the front desk spends hours on repetitive admin work.",
+    solution:
+      "A premium, responsive landing page with an integrated booking calendar, connected to GoHighLevel workflows that confirm every appointment, remind clients 24 hours ahead, handle cancellations, and track each booking in a CRM pipeline (New Lead, Booked, Showed, Canceled).",
+    steps: [
+      "Client books through the luxury landing page's integrated calendar.",
+      "The workflow removes old tags, tags the booking, and adds it to the pipeline.",
+      "An automated confirmation email and internal notification go out instantly.",
+      "A friendly reminder is sent 24 hours before the appointment.",
+      "Cancellations trigger their own workflow, keeping the pipeline accurate.",
+    ],
   },
 ];
