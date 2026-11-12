@@ -1965,3 +1965,6 @@ details[open] summary svg {
 @keyframes cs-fade { from { opacity: 0; } }
 @media (max-width: 860px) { .cs-hero { grid-template-columns: 1fr; } .cs-modal { inset: 0; transform: none; width: 100vw; height: 100dvh; border-radius: 0; } @keyframes cs-in { from { opacity: 0; transform: translateY(16px); } } }
 @media (prefers-reduced-motion: reduce) { .cs-modal, .cs-overlay { animation: none !important; } }
+.cs-zoom-overlay { z-index: 70; }
+.cs-zoom { position: fixed; z-index: 71; inset: 0; display: grid; place-items: center; padding: 4vw; animation: cs-fade .2s ease; }
+.cs-zoom img { max-width: 100%; max-height: 90dvh; border-radius: 12px; border: 1px solid var(--card-edge); }

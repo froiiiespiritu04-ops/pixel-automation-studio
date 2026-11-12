@@ -2,12 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowUpRight, Check, Play, X, ZoomIn } from "lucide-react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
 export interface Project {
   title: string;
   summary: string;
@@ -112,13 +106,17 @@ function CaseStudyModal({ project, open, onOpenChange }: { project: Project; ope
               </section>
             </div>
           </div>
-          <Dialog open={zoom} onOpenChange={setZoom}>
-            <DialogContent className="workflow-dialog">
-              <DialogTitle>{project.title}</DialogTitle>
-              <DialogDescription>Original screenshot from a demonstration workflow.</DialogDescription>
-              <img src={project.screenshot} alt={`${project.title} enlarged workflow`} />
-            </DialogContent>
-          </Dialog>
+          <DialogPrimitive.Root open={zoom} onOpenChange={setZoom}>
+            <DialogPrimitive.Portal>
+              <DialogPrimitive.Overlay className="cs-overlay cs-zoom-overlay" />
+              <DialogPrimitive.Content className="cs-zoom">
+                <DialogPrimitive.Title className="sr-only">{project.title} screenshot</DialogPrimitive.Title>
+                <DialogPrimitive.Description className="sr-only">Enlarged project screenshot.</DialogPrimitive.Description>
+                <img src={project.screenshot} alt={`${project.title} enlarged workflow`} />
+                <DialogPrimitive.Close className="cs-close" aria-label="Close zoomed image"><X size={18} /></DialogPrimitive.Close>
+              </DialogPrimitive.Content>
+            </DialogPrimitive.Portal>
+          </DialogPrimitive.Root>
         </DialogPrimitive.Content>
       </DialogPrimitive.Portal>
     </DialogPrimitive.Root>
