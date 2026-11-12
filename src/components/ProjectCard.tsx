@@ -168,11 +168,6 @@ function ProjectDemo({ project }: { project: Project }) {
   return (
     <div className="project-demo">
       <h4 className="demo-title">Watch the Project Demo</h4>
-      <p className="demo-note">
-        {open
-          ? "Playing right here. Close it with the X to go back to the preview."
-          : "Press play to watch it right here — no need to leave the page."}
-      </p>
       {open ? (
         <div className="video-frame video-reveal">
           <iframe
@@ -206,6 +201,13 @@ function ProjectDemo({ project }: { project: Project }) {
             width={1280}
             height={720}
             loading="lazy"
+            onError={(event) => {
+              const image = event.currentTarget;
+              if (!image.dataset.fallback && image.src.includes("/maxresdefault")) {
+                image.dataset.fallback = "1";
+                image.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+              }
+            }}
           />
           <span className="video-preview-shade" aria-hidden="true" />
           <span className="video-play" aria-hidden="true">
