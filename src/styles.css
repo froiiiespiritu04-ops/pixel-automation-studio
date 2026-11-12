@@ -1787,12 +1787,6 @@ details[open] summary svg {
   color: #c7a587;
   margin-bottom: 6px;
 }
-.demo-note {
-  font-size: 12px;
-  line-height: 1.7;
-  color: #9a9ca4;
-  margin-bottom: 16px;
-}
 .video-frame {
   position: relative;
   width: 100%;
@@ -1823,7 +1817,6 @@ details[open] summary svg {
 @media (max-width: 680px) {
   #projects .project-demo { padding: 20px 25px 25px; }
   .video-frame { border-radius: 10px; }
-  .demo-note { font-size: 11px; }
 }
 
 /* Click-to-play demo preview: poster + play button, revealed inline on click */
