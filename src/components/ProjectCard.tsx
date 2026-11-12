@@ -1,13 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, Play, X, ZoomIn } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Check, Play, X, ZoomIn } from "lucide-react";
+import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
 export interface Project {
   title: string;
   summary: string;
@@ -31,32 +25,14 @@ export function ProjectCard({
   project: Project;
   featured?: boolean;
 }) {
+  const [open, setOpen] = useState(false);
   return (
     <article className={`project-card ${featured ? "project-featured" : ""}`}>
       <div className="project-image">
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button variant="workflowImage" size="portfolio" aria-label={`Enlarge ${project.title} workflow`}>
-              <img
-                src={project.screenshot}
-                alt={`${project.title}: original automation workflow`}
-                loading="lazy"
-                width={1200}
-                height={675}
-              />
-              <span className="zoom-label">
-                <ZoomIn size={14} /> View workflow screenshot
-              </span>
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="workflow-dialog">
-            <DialogTitle>{project.title}</DialogTitle>
-            <DialogDescription>
-              Original screenshot from a demonstration workflow.
-            </DialogDescription>
-            <img src={project.screenshot} alt={`${project.title} enlarged workflow`} />
-          </DialogContent>
-        </Dialog>
+        <Button variant="workflowImage" size="portfolio" onClick={() => setOpen(true)} aria-label={`Open the ${project.title} case study`}>
+          <img src={project.screenshot} alt={`${project.title}: original automation workflow`} loading="lazy" width={1200} height={675} />
+          <span className="zoom-label"><ZoomIn size={14} /> Open case study</span>
+        </Button>
       </div>
       <div className="project-body">
         <p className="eyebrow">{project.category}</p>
@@ -65,30 +41,85 @@ export function ProjectCard({
         {project.note && <p className="project-note">{project.note}</p>}
         <div className="project-outcome">
           <span>THE BUSINESS BENEFITS</span>
-          {project.benefits ? <ul className="benefit-list">{project.benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}</ul> : <p>{project.outcome}</p>}
+          {project.benefits ? <ul className="benefit-list">{project.benefits.map((b) => <li key={b}>{b}</li>)}</ul> : <p>{project.outcome}</p>}
         </div>
-        <details>
-          <summary>
-            Explore the solution <ArrowUpRight size={16} />
-          </summary>
-          <div className="case-study">
-            <h4>The business challenge</h4>
-            <p>{project.problem}</p>
-            <h4>What I built</h4>
-            <p>{project.solution}</p>
-            <h4>How it works</h4>
-            <ol>
-              {project.steps.map((s) => (
-                <li key={s}>{s}</li>
-              ))}
-            </ol>
-            <h4>Tools and integrations</h4>
-            <div className="tags">{project.tech.map((tool) => <span key={tool}>{tool}</span>)}</div>
-          </div>
-        </details>
+        <Button variant="portfolioOutline" size="portfolio" onClick={() => setOpen(true)}>
+          Explore the case study <ArrowUpRight size={16} />
+        </Button>
       </div>
-      {project.videoUrl && <ProjectDemo project={project} />}
+      <CaseStudyModal project={project} open={open} onOpenChange={setOpen} />
     </article>
+  );
+}
+
+function CaseStudyModal({ project, open, onOpenChange }: { project: Project; open: boolean; onOpenChange: (o: boolean) => void }) {
+  const detailsRef = useRef<HTMLDivElement>(null);
+  const [zoom, setZoom] = useState(false);
+  const results = project.benefits ?? [project.outcome];
+  const explore = () => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    detailsRef.current?.scrollIntoView({ behavior: reduce ? "instant" : "smooth", block: "start" });
+  };
+  return (
+    <DialogPrimitive.Root open={open} onOpenChange={onOpenChange}>
+      <DialogPrimitive.Portal>
+        <DialogPrimitive.Overlay className="cs-overlay" />
+        <DialogPrimitive.Content className="cs-modal">
+          <DialogPrimitive.Close className="cs-close" aria-label="Close case study"><X size={18} /></DialogPrimitive.Close>
+          <div className="cs-scroll">
+            <div className="cs-hero">
+              <button type="button" className="cs-image" onClick={() => setZoom(true)} aria-label={`Zoom into the ${project.title} screenshot`}>
+                <img src={project.screenshot} alt={`${project.title} project showcase`} width={1200} height={675} />
+                <span className="zoom-label"><ZoomIn size={14} /> Click to zoom</span>
+              </button>
+              <div className="cs-intro">
+                <p className="eyebrow">{project.category}</p>
+                <DialogPrimitive.Title className="cs-title">{project.title}</DialogPrimitive.Title>
+                <DialogPrimitive.Description className="cs-overview">{project.summary}</DialogPrimitive.Description>
+                {project.note && <p className="project-note">{project.note}</p>}
+                <h4 className="cs-label">Key business benefits</h4>
+                <ul className="benefit-list">{results.map((b) => <li key={b}>{b}</li>)}</ul>
+                <Button variant="portfolio" size="portfolio" onClick={explore}>Explore the solution <ArrowDown size={16} /></Button>
+              </div>
+            </div>
+            {project.videoUrl && <ProjectDemo project={project} />}
+            <div className="cs-details" ref={detailsRef}>
+              <section className="cs-block">
+                <p className="cs-num">01</p><h4>The Challenge</h4><p>{project.problem}</p>
+              </section>
+              <section className="cs-block">
+                <p className="cs-num">02</p><h4>The Solution</h4><p>{project.solution}</p>
+                <div className="tags">{project.tech.map((t) => <span key={t}>{t}</span>)}</div>
+              </section>
+              <section className="cs-block">
+                <p className="cs-num">03</p><h4>Customer Journey</h4>
+                <ol className="cs-flow">
+                  {project.steps.map((s, i) => (
+                    <li key={s}><span className="cs-step-num">{i + 1}</span><span>{s}</span>{i < project.steps.length - 1 && <ArrowDown className="cs-arrow" size={16} aria-hidden="true" />}</li>
+                  ))}
+                </ol>
+              </section>
+              <section className="cs-block">
+                <p className="cs-num">04</p><h4>The Results</h4>
+                <p>{project.outcome}</p>
+                <ul className="cs-results">{results.map((b) => <li key={b}><Check size={15} /> {b}</li>)}</ul>
+              </section>
+            </div>
+          </div>
+          <DialogPrimitive.Root open={zoom} onOpenChange={setZoom}>
+            <DialogPrimitive.Portal>
+              <DialogPrimitive.Overlay className="cs-overlay cs-zoom-overlay" />
+              <DialogPrimitive.Content className="cs-zoom">
+                <DialogPrimitive.Title className="sr-only">{project.title} screenshot</DialogPrimitive.Title>
+                <DialogPrimitive.Description className="sr-only">Enlarged project screenshot.</DialogPrimitive.Description>
+                <img src={project.screenshot} alt={`${project.title} enlarged workflow`} />
+                <DialogPrimitive.Close className="cs-close" aria-label="Close zoomed image"><X size={18} /></DialogPrimitive.Close>
+              </DialogPrimitive.Content>
+            </DialogPrimitive.Portal>
+          </DialogPrimitive.Root>
+        </DialogPrimitive.Content>
+      </DialogPrimitive.Portal>
+    </DialogPrimitive.Root>
   );
 }
 
