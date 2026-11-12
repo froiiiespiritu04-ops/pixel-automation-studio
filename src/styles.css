@@ -1930,3 +1930,38 @@ details[open] summary svg {
   .video-play,
   .video-close { transition: none; }
 }
+
+/* Case study modal */
+.cs-overlay { position: fixed; inset: 0; z-index: 60; background: rgba(5,5,6,.82); backdrop-filter: blur(4px); animation: cs-fade .25s ease; }
+.cs-modal { position: fixed; z-index: 61; inset: 3dvh 50% auto auto; transform: translateX(50%); width: min(1180px, 94vw); height: 94dvh; background: var(--background); border: 1px solid var(--card-edge); border-radius: 18px; box-shadow: var(--card-halo), 0 30px 80px -20px rgba(0,0,0,.7); overflow: hidden; animation: cs-in .3s cubic-bezier(.2,.8,.2,1); }
+.cs-modal[data-state=closed], .cs-overlay[data-state=closed] { animation: cs-fade .2s ease reverse; }
+.cs-scroll { height: 100%; overflow-y: auto; overscroll-behavior: contain; padding: clamp(20px,4vw,48px); }
+.cs-close { position: absolute; top: 14px; right: 14px; z-index: 3; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 999px; background: var(--accent); color: var(--foreground); border: 1px solid var(--card-edge); cursor: pointer; }
+.cs-close:hover, .cs-close:focus-visible { color: var(--primary); outline: none; border-color: var(--primary); }
+.cs-hero { display: grid; grid-template-columns: 1.25fr 1fr; gap: clamp(20px,3vw,40px); align-items: start; }
+.cs-image { position: relative; display: block; width: 100%; padding: 0; border: 1px solid var(--card-edge); border-radius: 14px; overflow: hidden; background: var(--accent); cursor: zoom-in; }
+.cs-image img { width: 100%; height: auto; display: block; transition: transform .4s ease; }
+.cs-image:hover img { transform: scale(1.02); }
+.cs-title { font-size: clamp(1.5rem,2.6vw,2.2rem); line-height: 1.15; margin: .3rem 0 1rem; }
+.cs-overview { color: var(--muted-foreground); line-height: 1.65; }
+.cs-label { margin: 1.4rem 0 .6rem; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--primary); }
+.cs-intro .button { margin-top: 1.4rem; }
+.cs-modal .project-demo { margin-top: clamp(28px,4vw,48px); }
+.cs-details { display: grid; gap: 18px; margin-top: clamp(28px,4vw,48px); scroll-margin-top: 20px; }
+.cs-block { border: 1px solid var(--card-edge); border-radius: 14px; padding: clamp(18px,3vw,30px); box-shadow: var(--card-halo); }
+.cs-block h4 { font-size: 1.25rem; margin: .2rem 0 .7rem; }
+.cs-block p { color: var(--muted-foreground); line-height: 1.65; }
+.cs-num { color: var(--primary) !important; font-size: .8rem; letter-spacing: .15em; }
+.cs-flow { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: 0; max-width: 640px; }
+.cs-flow li { position: relative; display: flex; gap: 12px; align-items: center; padding: 12px 14px; border: 1px solid var(--card-edge); border-radius: 10px; background: var(--accent); margin-bottom: 30px; }
+.cs-flow li:last-child { margin-bottom: 0; }
+.cs-step-num { flex: none; width: 28px; height: 28px; border-radius: 999px; display: grid; place-items: center; background: var(--primary); color: var(--primary-foreground); font-size: .8rem; font-weight: 700; }
+.cs-arrow { position: absolute; left: 20px; bottom: -24px; color: var(--primary); }
+.cs-results { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 10px; }
+.cs-results li { display: flex; gap: 8px; align-items: flex-start; padding: 12px; border-radius: 10px; background: var(--accent); }
+.cs-results svg { color: var(--primary); flex: none; margin-top: 3px; }
+.project-body > .button { margin-top: 1rem; align-self: flex-start; }
+@keyframes cs-in { from { opacity: 0; transform: translateX(50%) translateY(16px) scale(.98); } }
+@keyframes cs-fade { from { opacity: 0; } }
+@media (max-width: 860px) { .cs-hero { grid-template-columns: 1fr; } .cs-modal { inset: 0; transform: none; width: 100vw; height: 100dvh; border-radius: 0; } @keyframes cs-in { from { opacity: 0; transform: translateY(16px); } } }
+@media (prefers-reduced-motion: reduce) { .cs-modal, .cs-overlay { animation: none !important; } }
